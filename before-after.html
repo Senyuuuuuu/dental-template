@@ -1,0 +1,477 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Before &amp; After Smile Transformations — Dentiva London</title>
+  <meta name="description" content="Witness verified clinical before and after smile transformations at Dentiva: laser teeth whitening, ceramic porcelain veneers, and titanium implants in London." />
+  
+  <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,300&display=swap" rel="stylesheet" />
+  
+  <!-- Stylesheet -->
+    <link rel="icon" type="image/jpeg" href="assets/dentist_logo.jpg" />
+  <link rel="stylesheet" href="style.css" />
+  
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <!-- Lenis Smooth Momentum Scroll -->
+  <script src="assets/lenis.min.js"></script>
+</head>
+<body>
+
+  <div class="page-wrapper">
+    
+    <!-- SITE HEADER / NAVBAR -->
+    <header class="site-header-wrapper" id="siteHeader">
+      <nav class="navbar" id="navbar">
+        <a href="index.html" class="brand-logo" aria-label="Dentiva Dental Clinic Home">
+          <img src="assets/dentist_logo.jpg" style="height: 42px; width: 42px; object-fit: cover; border-radius: 50%;" />
+        </a>
+
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="services.html" class="nav-link">Our Services</a></li>
+          <li><a href="before-after.html" class="nav-link active">Before &amp; After</a></li>
+          <li><a href="reviews.html" class="nav-link">Patient Stories</a></li>
+          <li><a href="faq.html" class="nav-link">FAQ</a></li>
+          <li><a href="contact.html" class="nav-link">Our Clinics</a></li>
+          <li><a href="booking.html" class="nav-link nav-book-link" style="color: var(--accent-teal); font-weight: 600;">Book Online</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <div class="lang-selector" id="langBtn" tabindex="0" role="button" aria-label="Select Language">
+            <span class="lang-globe-icon">🌐</span>
+            <span>EN</span>
+          </div>
+          <a href="booking.html" class="btn-signin" id="signinBtn">Book Visit</a>
+          <button class="menu-toggle" id="menuToggle" aria-label="Toggle Navigation Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </nav>
+
+      <!-- Mobile Dropdown Menu -->
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html" class="mobile-link">Home</a>
+        <a href="services.html" class="mobile-link">Our Services</a>
+        <a href="before-after.html" class="mobile-link active">Before &amp; After</a>
+        <a href="reviews.html" class="mobile-link">Patient Stories</a>
+        <a href="faq.html" class="mobile-link">FAQ</a>
+        <a href="contact.html" class="mobile-link">Our Clinics</a>
+        <a href="booking.html" class="mobile-link mobile-book-highlight">Book Online ➔</a>
+        <div class="mobile-menu-actions">
+          <a href="booking.html" class="btn-signin mobile-btn-signin">Book Consultation</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- SUBPAGE HERO -->
+    <section class="subpage-hero">
+      <div class="subpage-breadcrumbs">
+        <a href="index.html">Home</a>
+        <span>/</span>
+        <span>Smile Gallery</span>
+      </div>
+      <h1 class="subpage-title">Real Clinical Results.<br />Uncompromised Radiance.</h1>
+      <p class="subpage-desc">
+        Explore unretouched patient case studies across laser teeth whitening, ceramic veneers, and titanium implants. Every photograph captured under standardized medical cross-polarization lighting.
+      </p>
+    </section>
+
+    <!-- INTERACTIVE DUAL SLIDER HERO DEMO -->
+    <section class="before-after-section" id="before-after" style="margin-top: 0; background: #FFFFFF;">
+      <div class="ba-header-row" style="text-align: center; max-width: 760px; margin: 0 auto 36px;">
+        <div class="pill-badge" style="margin-bottom: 12px; display: inline-flex;">
+          <span class="badge-star">★</span>
+          <span class="badge-text">Interactive Case Inspector</span>
+        </div>
+        <h2 style="font-family: var(--font-heading); font-size: clamp(2rem, 3.2vw, 2.6rem); font-weight: 700; letter-spacing: -0.02em; color: var(--text-dark); margin-bottom: 12px;">
+          Compare Before &amp; After in Microscopic Detail
+        </h2>
+        <p style="color: var(--text-body); font-size: 1rem; line-height: 1.6;">
+          Drag the center handle horizontally to observe the clinical boundary between the baseline presentation and the post-treatment result.
+        </p>
+      </div>
+
+      <!-- Treatment Filter Tabs -->
+      <div class="ba-controls-nav">
+        <button class="ba-tab-btn active" data-treatment="whitening">Laser Teeth Whitening</button>
+        <button class="ba-tab-btn" data-treatment="veneers">Handcrafted Porcelain Veneers</button>
+      </div>
+
+      <!-- Comparison Frame & Info Card -->
+      <div class="ba-display-container">
+        <div class="ba-comparison-frame" id="baComparisonFrame">
+          <div class="ba-img-layer ba-after-layer">
+            <img src="assets/after_whitening.jpg" alt="Teeth after whitening" class="ba-inner-img" id="baAfterImg" />
+            <span class="ba-tag-badge ba-tag-after">AFTER DENTIVA</span>
+          </div>
+          <div class="ba-img-layer ba-before-layer" id="baBeforeLayer" style="width: 50%;">
+            <img src="assets/before_whitening.jpg" alt="Teeth before whitening" class="ba-inner-img" id="baBeforeImg" />
+            <span class="ba-tag-badge ba-tag-before">BEFORE</span>
+          </div>
+          <div class="ba-handle-divider" id="baHandleDivider" style="left: 50%;">
+            <div class="ba-handle-button" id="baHandleBtn" aria-label="Drag to compare">
+              <span>‹ ›</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="ba-info-card" id="baInfoCard">
+          <div class="pill-badge" style="align-self: flex-start;">
+            <span class="badge-star">✓</span>
+            <span class="badge-text" id="baCaseNumber">Case #8412 • Single Session</span>
+          </div>
+          <h3 class="ba-procedure-name" id="baTitle">Laser Cold-Light Whitening</h3>
+          <p class="ba-procedure-desc" id="baDesc">
+            Elimination of years of stubborn tea, coffee, and nicotine discoloration utilizing our 38% hydrogen peroxide medical-grade gel combined with photothermal blue LED activation. Zero enamel stripping, maximum biocompatibility.
+          </p>
+
+          <div class="ba-metrics-grid">
+            <div class="ba-metric-pill">
+              <span class="ba-metric-val" id="baMetric1">8 Shades</span>
+              <span class="ba-metric-lbl">VITA Bleach Shade Shift</span>
+            </div>
+            <div class="ba-metric-pill">
+              <span class="ba-metric-val" id="baMetric2">45 Mins</span>
+              <span class="ba-metric-lbl">In-Chair Treatment Time</span>
+            </div>
+            <div class="ba-metric-pill">
+              <span class="ba-metric-val" id="baMetric3">0% Pain</span>
+              <span class="ba-metric-lbl">Sensitivity Neutralized</span>
+            </div>
+            <div class="ba-metric-pill">
+              <span class="ba-metric-val" id="baMetric4">3+ Years</span>
+              <span class="ba-metric-lbl">Clinical Longevity</span>
+            </div>
+          </div>
+
+          <div class="ba-cta-row">
+            <button class="btn-cta-sharp" onclick="window.openAppointmentModal('whitening')">
+              <span>Book This Result</span>
+              <span class="btn-arrow">➔</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SIDE-BY-SIDE CASE STUDY GALLERY -->
+    <section style="background: var(--bg-pale-blue); border-radius: var(--radius-hero); padding: 72px 48px; margin: 32px 0;">
+      <div style="text-align: center; max-width: 700px; margin: 0 auto 48px;">
+        <div class="pill-badge" style="margin-bottom: 12px; display: inline-flex;">
+          <span class="badge-star">✦</span>
+          <span>Curated Case Files</span>
+        </div>
+        <h2 style="font-family: var(--font-heading); font-size: clamp(2rem, 3.2vw, 2.8rem); font-weight: 700; color: var(--text-dark); letter-spacing: -0.02em; margin-bottom: 12px;">
+          Detailed Clinical Transformations
+        </h2>
+        <p style="color: var(--text-body); font-size: 1rem; line-height: 1.6;">
+          Every smile design is mathematically planned to balance facial symmetry, lip dynamics, and tooth-to-gingiva golden proportions.
+        </p>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 40px;">
+        
+        <!-- Case 1 Card -->
+        <div style="background: #FFFFFF; border-radius: var(--radius-card); padding: 36px; box-shadow: var(--shadow-sm); display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px; align-items: center;">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+            <div style="position: relative; border-radius: var(--radius-inner); overflow: hidden; aspect-ratio: 4/3;">
+              <img src="assets/before_whitening.jpg" alt="Baseline teeth discoloration" style="width: 100%; height: 100%; object-fit: cover;" />
+              <span style="position: absolute; bottom: 10px; left: 10px; background: rgba(0,0,0,0.7); color: #fff; font-size: 0.72rem; font-weight: 700; padding: 4px 10px; border-radius: var(--radius-pill);">BEFORE (VITA A3.5)</span>
+            </div>
+            <div style="position: relative; border-radius: var(--radius-inner); overflow: hidden; aspect-ratio: 4/3;">
+              <img src="assets/after_whitening.jpg" alt="Post-whitening bright teeth" style="width: 100%; height: 100%; object-fit: cover;" />
+              <span style="position: absolute; bottom: 10px; left: 10px; background: #178782; color: #fff; font-size: 0.72rem; font-weight: 700; padding: 4px 10px; border-radius: var(--radius-pill);">AFTER (VITA B1)</span>
+            </div>
+          </div>
+          <div>
+            <span class="treatment-tag-pill" style="margin-bottom: 12px; display: inline-block;">Case 01 • Cosmetic Whitening</span>
+            <h3 style="font-family: var(--font-heading); font-size: 1.4rem; font-weight: 700; color: var(--text-dark); margin-bottom: 10px;">
+              Extensive Chromatic Reversal in 45 Minutes
+            </h3>
+            <p style="font-size: 0.92rem; color: var(--text-body); line-height: 1.6; margin-bottom: 16px;">
+              Patient presented with deep chromogenic staining accumulated over a decade. Completed one in-chair photothermal laser cycle without experiencing post-op dentinal tubule sensitivity.
+            </p>
+            <div style="display: flex; gap: 24px; font-size: 0.84rem; color: var(--text-muted);">
+              <div><strong style="color: var(--text-dark); display: block; font-size: 1.1rem;">8 Tones</strong> Lift Achieved</div>
+              <div><strong style="color: var(--text-dark); display: block; font-size: 1.1rem;">1 Session</strong> Total Visits</div>
+              <div><strong style="color: var(--text-dark); display: block; font-size: 1.1rem;">£385</strong> Total Cost</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case 2 Card -->
+        <div style="background: #FFFFFF; border-radius: var(--radius-card); padding: 36px; box-shadow: var(--shadow-sm); display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px; align-items: center;">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+            <div style="position: relative; border-radius: var(--radius-inner); overflow: hidden; aspect-ratio: 4/3;">
+              <img src="assets/before_veneers.jpg" alt="Baseline gap and worn edges" style="width: 100%; height: 100%; object-fit: cover;" />
+              <span style="position: absolute; bottom: 10px; left: 10px; background: rgba(0,0,0,0.7); color: #fff; font-size: 0.72rem; font-weight: 700; padding: 4px 10px; border-radius: var(--radius-pill);">BEFORE (Diastema)</span>
+            </div>
+            <div style="position: relative; border-radius: var(--radius-inner); overflow: hidden; aspect-ratio: 4/3;">
+              <img src="assets/after_veneers.jpg" alt="Veneers closed gap and bright smile" style="width: 100%; height: 100%; object-fit: cover;" />
+              <span style="position: absolute; bottom: 10px; left: 10px; background: #178782; color: #fff; font-size: 0.72rem; font-weight: 700; padding: 4px 10px; border-radius: var(--radius-pill);">AFTER (6 Veneers)</span>
+            </div>
+          </div>
+          <div>
+            <span class="treatment-tag-pill" style="margin-bottom: 12px; display: inline-block;">Case 02 • Porcelain Veneers</span>
+            <h3 style="font-family: var(--font-heading); font-size: 1.4rem; font-weight: 700; color: var(--text-dark); margin-bottom: 10px;">
+              Anterior Gap Closure with Zero Enamel Over-reduction
+            </h3>
+            <p style="font-size: 0.92rem; color: var(--text-body); line-height: 1.6; margin-bottom: 16px;">
+              Patient desired correction of an asymmetrical 2.4mm midline gap and chipped incisal edges. Dr. Sterling placed 6 handcrafted feldspathic ceramic veneers matching the natural facial curve.
+            </p>
+            <div style="display: flex; gap: 24px; font-size: 0.84rem; color: var(--text-muted);">
+              <div><strong style="color: var(--text-dark); display: block; font-size: 1.1rem;">0.3 mm</strong> Micro Prep</div>
+              <div><strong style="color: var(--text-dark); display: block; font-size: 1.1rem;">2 Visits</strong> Turnaround</div>
+              <div><strong style="color: var(--text-dark); display: block; font-size: 1.1rem;">15+ Yrs</strong> Warranty</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div style="text-align: center; margin-top: 48px;">
+        <button class="btn-cta-sharp" onclick="window.openAppointmentModal()">
+          <span>Book Your Smile Consultation</span>
+          <span class="btn-arrow">➔</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer" id="contact">
+      <div class="footer-container">
+        
+        <div class="footer-top-row">
+          <div class="footer-brand">
+            <div class="brand-logo">
+              <div class="logo-hexagon">
+                <svg viewBox="0 0 32 32" width="18" height="18" fill="none">
+                  <path d="M16 2 L28 9 L28 23 L16 30 L4 23 L4 9 Z" fill="#111111"/>
+                  <path d="M11 15 C11 12, 13 10, 16 10 C19 10, 21 12, 21 15 C21 19, 19 22, 16 22 C13 22, 11 19, 11 15 Z" fill="none" stroke="#FFFFFF" stroke-width="1.8"/>
+                </svg>
+              </div>
+              <span class="brand-name">Dentiva</span>
+            </div>
+            <p class="footer-tagline">
+              Reinventing dentistry with state-of-the-art titanium implants, painless restorative care, and bespoke smile architecture.
+            </p>
+          </div>
+
+          <div class="footer-nav-col">
+            <span class="footer-col-title">Services</span>
+            <a href="services.html#implants">Dental Implants</a>
+            <a href="services.html#veneers">Porcelain Veneers</a>
+            <a href="services.html#whitening">Laser Whitening</a>
+            <a href="services.html#checkup">Comprehensive Exams</a>
+          </div>
+
+          <div class="footer-nav-col">
+            <span class="footer-col-title">Patient Portal</span>
+            <a href="before-after.html">Before &amp; After Cases</a>
+            <a href="reviews.html">Verified Patient Stories</a>
+            <a href="faq.html">FAQ &amp; Financing</a>
+            <a href="contact.html">Our London Clinics</a>
+          </div>
+
+          <div class="footer-nav-col">
+            <span class="footer-col-title">Opening Hours</span>
+            <p class="hours-text">Mon - Fri: 09:00 - 18:00</p>
+            <p class="hours-text">Saturday: 09:00 - 16:00</p>
+            <p class="hours-text">Sunday: Emergency On-Call</p>
+          </div>
+        </div>
+
+        <div class="footer-bottom-bar">
+          <p>© 2026 Dentiva Dental Clinic. All Rights Reserved.</p>
+          <div class="footer-legals">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Patient Rights</a>
+          </div>
+        </div>
+
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- INTERACTIVE APPOINTMENT MODAL -->
+  <div class="modal-overlay" id="appointmentModal" aria-hidden="true">
+    <div class="modal-container" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close modal">✕</button>
+      
+      <div class="modal-header">
+        <div class="pill-badge" style="margin-bottom: 8px;">
+          <span class="badge-star">★</span>
+          <span>Dentiva Appointment</span>
+        </div>
+        <h3 id="modalTitle" class="modal-heading">Book Your Consultation</h3>
+        <p class="modal-sub">Select your desired service and preferred appointment slot.</p>
+      </div>
+
+      <form class="appointment-form" id="bookingForm" onsubmit="event.preventDefault(); window.handleBookingSubmit();">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="patientName">Full Name</label>
+            <input type="text" id="patientName" placeholder="e.g. Sarah Jenkins" required />
+          </div>
+          <div class="form-group">
+            <label for="patientPhone">Phone Number</label>
+            <input type="tel" id="patientPhone" placeholder="+44 20 7946 0912" required />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="treatmentSelect">Treatment Type</label>
+          <select id="treatmentSelect" required>
+            <option value="implant">Dental Titanium Implant &amp; Crown</option>
+            <option value="checkup">Vibrant Comprehensive Checkup</option>
+            <option value="cleaning">Revitalized Prophylaxis Cleaning</option>
+            <option value="filling">Reinforced Aesthetic Fillings</option>
+            <option value="other">Other Consultation</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="prefDate">Preferred Date</label>
+            <input type="date" id="prefDate" required />
+          </div>
+          <div class="form-group">
+            <label for="prefTime">Preferred Time</label>
+            <select id="prefTime" required>
+              <option value="morning">Morning (09:00 - 12:00)</option>
+              <option value="afternoon">Afternoon (12:00 - 15:00)</option>
+              <option value="evening">Late Afternoon (15:00 - 18:00)</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-black-pill submit-btn">
+          <span>Confirm Booking Request</span>
+          <span class="btn-arrow">➔</span>
+        </button>
+        <p class="form-disclaimer">No deposit required. Our clinic concierge will confirm within 2 hours.</p>
+      </form>
+
+      <div class="booking-success" id="bookingSuccess" style="display: none;">
+        <div class="success-icon">✓</div>
+        <h4>Appointment Requested!</h4>
+        <p>Thank you. Our London clinic coordinator will contact you shortly to finalize your appointment details.</p>
+        <button class="btn-black-pill" onclick="window.closeAppointmentModal()" style="margin-top: 16px;">Done</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FLOATING CONCIERGE DUAL-MODE MESSENGER WIDGET -->
+  <aside class="floating-messenger-widget" id="messengerWidget" aria-label="Dentiva Messenger Concierge">
+    <!-- Chat Popup Window -->
+    <div class="messenger-chat-modal" id="messengerChatModal" role="dialog" aria-modal="false" aria-label="Dentiva Messenger Concierge">
+      <!-- Header -->
+      <div class="messenger-modal-header">
+        <div class="messenger-avatar-info">
+          <div class="messenger-avatar-circle">D</div>
+          <div class="messenger-text-meta">
+            <span class="messenger-title">Dentiva Concierge</span>
+            <span class="messenger-status-sub">
+              <span class="status-green-dot"></span>
+              Online • Replies Instantly
+            </span>
+          </div>
+        </div>
+        <button class="messenger-close-btn" id="messengerCloseBtn" aria-label="Close Messenger Chat">✕</button>
+      </div>
+
+      <!-- Segmented Dual-Mode Switcher -->
+      <div class="messenger-channel-tabs" role="tablist">
+        <button class="messenger-channel-tab active" id="tabBubbleChat" type="button" role="tab" aria-selected="true">
+          <span>💬</span> Chat in Bubble
+        </button>
+        <button class="messenger-channel-tab" id="tabDirectMessenger" type="button" role="tab" aria-selected="false">
+          <span>⚡</span> Open Messenger
+        </button>
+      </div>
+
+      <!-- Option 1: In-Bubble Chat View -->
+      <div class="messenger-bubble-chat-view" id="bubbleChatView">
+        <div class="chat-modal-body" id="chatMessagesContainer">
+          <div class="chat-bubble-bot">
+            Hello! 👋 Welcome to Dentiva London. How can Dr. Sterling's concierge team assist your smile today?
+          </div>
+          <div class="chat-quick-options" id="chatQuickOptions">
+            <button class="chat-option-btn" type="button" data-action="book">
+              <span>📅 Book Consultation</span>
+              <span>➔</span>
+            </button>
+            <button class="chat-option-btn" type="button" data-action="whitening">
+              <span>✨ Laser Whitening Pricing</span>
+              <span>➔</span>
+            </button>
+            <button class="chat-option-btn" type="button" data-action="implant">
+              <span>🦷 3D Dental Implant Info</span>
+              <span>➔</span>
+            </button>
+            <button class="chat-option-btn" type="button" data-action="messenger-direct">
+              <span>⚡ Switch to Messenger App</span>
+              <span>➔</span>
+            </button>
+          </div>
+        </div>
+
+        <form class="chat-modal-footer" id="messengerChatForm" onsubmit="event.preventDefault(); window.sendConciergeMessage();">
+          <input 
+            type="text" 
+            id="chatInputField" 
+            class="chat-input-field" 
+            placeholder="Ask Dr. Sterling's team..." 
+            autocomplete="off"
+          />
+          <button type="submit" class="chat-send-btn" id="chatSendBtn" aria-label="Send Message">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="22" y1="2" x2="11" y2="13"></line>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+            </svg>
+          </button>
+        </form>
+      </div>
+
+      <!-- Option 2: Direct Messenger Redirect Card -->
+      <div class="messenger-direct-card" id="directMessengerCard">
+        <div class="messenger-direct-icon">
+          <svg viewBox="0 0 28 28" width="30" height="30" fill="currentColor">
+            <path d="M14 2C7.373 2 2 6.953 2 13.06c0 3.48 1.745 6.577 4.475 8.527V26l4.248-2.332c1.047.29 2.152.452 3.277.452 6.627 0 12-4.953 12-11.06C26 6.953 20.627 2 14 2zm1.385 14.89l-3.076-3.28-6.002 3.28 6.603-7.01 3.153 3.28 5.925-3.28-6.603 7.01z"/>
+          </svg>
+        </div>
+        <div class="messenger-direct-heading">Chat on Meta Messenger</div>
+        <p class="messenger-direct-desc">
+          Prefer chatting directly in the Facebook Messenger app? Connect with our clinic concierge team at @dentivalondon.
+        </p>
+        <a href="https://m.me/dentivalondon" target="_blank" rel="noopener noreferrer" class="btn-open-messenger">
+          <span>Open in Messenger App</span>
+          <span>↗</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Floating Circular Launcher Button -->
+    <button class="messenger-launcher-btn" id="messengerLauncherBtn" aria-label="Open Dentiva Messenger Concierge" title="Chat with Dentiva on Messenger">
+      <span class="messenger-pulse-ring" aria-hidden="true"></span>
+      <span class="messenger-online-badge" aria-hidden="true"></span>
+      <svg viewBox="0 0 28 28" class="messenger-icon-svg" aria-hidden="true">
+        <path d="M14 2C7.373 2 2 6.953 2 13.06c0 3.48 1.745 6.577 4.475 8.527V26l4.248-2.332c1.047.29 2.152.452 3.277.452 6.627 0 12-4.953 12-11.06C26 6.953 20.627 2 14 2zm1.385 14.89l-3.076-3.28-6.002 3.28 6.603-7.01 3.153 3.28 5.925-3.28-6.603 7.01z"/>
+      </svg>
+    </button>
+  </aside>
+
+  <!-- Script -->
+  <script src="script.js"></script>
+</body>
+</html>

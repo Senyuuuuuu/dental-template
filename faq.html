@@ -1,0 +1,475 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Frequently Asked Questions (FAQ) — Dentiva London</title>
+  <meta name="description" content="Get answers to all your dental questions: implant recovery, porcelain veneers longevity, pain-free sedation, pricing, and 0% financing at Dentiva London." />
+  
+  <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,300&display=swap" rel="stylesheet" />
+  
+  <!-- Stylesheet -->
+    <link rel="icon" type="image/jpeg" href="assets/dentist_logo.jpg" />
+  <link rel="stylesheet" href="style.css" />
+  
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <!-- Lenis Smooth Momentum Scroll -->
+  <script src="assets/lenis.min.js"></script>
+</head>
+<body>
+
+  <div class="page-wrapper">
+    
+    <!-- SITE HEADER / NAVBAR -->
+    <header class="site-header-wrapper" id="siteHeader">
+      <nav class="navbar" id="navbar">
+        <a href="index.html" class="brand-logo" aria-label="Dentiva Dental Clinic Home">
+          <img src="assets/dentist_logo.jpg" style="height: 42px; width: 42px; object-fit: cover; border-radius: 50%;" />
+        </a>
+
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="services.html" class="nav-link">Our Services</a></li>
+          <li><a href="before-after.html" class="nav-link">Before &amp; After</a></li>
+          <li><a href="reviews.html" class="nav-link">Patient Stories</a></li>
+          <li><a href="faq.html" class="nav-link active">FAQ</a></li>
+          <li><a href="contact.html" class="nav-link">Our Clinics</a></li>
+          <li><a href="booking.html" class="nav-link nav-book-link" style="color: var(--accent-teal); font-weight: 600;">Book Online</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <div class="lang-selector" id="langBtn" tabindex="0" role="button" aria-label="Select Language">
+            <span class="lang-globe-icon">🌐</span>
+            <span>EN</span>
+          </div>
+          <a href="booking.html" class="btn-signin" id="signinBtn">Book Visit</a>
+          <button class="menu-toggle" id="menuToggle" aria-label="Toggle Navigation Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </nav>
+
+      <!-- Mobile Dropdown Menu -->
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html" class="mobile-link">Home</a>
+        <a href="services.html" class="mobile-link">Our Services</a>
+        <a href="before-after.html" class="mobile-link">Before &amp; After</a>
+        <a href="reviews.html" class="mobile-link">Patient Stories</a>
+        <a href="faq.html" class="mobile-link active">FAQ</a>
+        <a href="contact.html" class="mobile-link">Our Clinics</a>
+        <a href="booking.html" class="mobile-link" style="color: var(--accent-teal); font-weight: 700;">Book Online ➔</a>
+        <div class="mobile-menu-actions">
+          <a href="booking.html" class="btn-signin" style="width: 100%; text-align: center; display: block;">Book Consultation</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- SUBPAGE HERO -->
+    <section class="subpage-hero">
+      <div class="subpage-breadcrumbs">
+        <a href="index.html">Home</a>
+        <span>/</span>
+        <span>FAQ</span>
+      </div>
+      <h1 class="subpage-title">Questions &amp; Answers.<br />Complete Clinical Transparency.</h1>
+      <p class="subpage-desc">
+        Learn how our painless sedation works, what to expect during implant recovery, and how our 0% APR healthcare payment installments operate.
+      </p>
+    </section>
+
+    <!-- FAQ MAIN ACCORDION SECTION -->
+    <section class="faq-section" style="margin-top: 0; background: #FFFFFF; padding: 56px 40px;">
+      
+      <!-- Live Search Box -->
+      <div style="max-width: 680px; margin: 0 auto 48px;">
+        <div style="position: relative;">
+          <input 
+            type="search" 
+            id="faqSearchInput" 
+            placeholder="Search questions (e.g. pain, financing, veneers, recovery)..." 
+            style="width: 100%; padding: 16px 24px 16px 52px; border-radius: var(--radius-pill); border: 1px solid #CBD5E1; font-family: inherit; font-size: 0.96rem; outline: none; background: #F8FAFC; transition: border-color 0.2s;"
+            oninput="window.filterFAQs(this.value)"
+          />
+          <span style="position: absolute; left: 22px; top: 50%; transform: translateY(-50%); font-size: 1.1rem; color: #94A3B8;">🔍</span>
+        </div>
+      </div>
+
+      <!-- Category 1: Dental Implants & Surgery -->
+      <div style="max-width: 820px; margin: 0 auto 48px;">
+        <h3 style="font-family: var(--font-heading); font-size: 1.3rem; font-weight: 700; color: var(--text-dark); margin-bottom: 20px; display: flex; align-items: center; gap: 8px;">
+          <span style="color: var(--accent-blue);">🦷</span> Dental Implants &amp; Restorations
+        </h3>
+        
+        <div class="faq-accordion-container">
+          <div class="faq-item-card">
+            <button class="faq-question-trigger" aria-expanded="false">
+              <span>Am I a suitable candidate for titanium dental implants if I have bone loss?</span>
+              <span class="faq-icon-rotator">+</span>
+            </button>
+            <div class="faq-answer-drawer">
+              <p>
+                In almost all cases, yes. At Dentiva London, we use 3D CBCT bone mapping to evaluate bone density down to 0.1mm. If bone volume is deficient, we perform biocompatible synthetic bone grafting or sinus lifts concurrently with implant placement, avoiding secondary surgical sessions.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item-card">
+            <button class="faq-question-trigger" aria-expanded="false">
+              <span>How long does the entire dental implant process take from start to finish?</span>
+              <span class="faq-icon-rotator">+</span>
+            </button>
+            <div class="faq-answer-drawer">
+              <p>
+                A single implant fixture takes approximately 30 to 45 minutes to place in-chair under local anesthesia. The titanium implant then integrates with your jawbone (osseointegration) over 8 to 12 weeks. Once healed, your custom monolithic zirconia crown is permanently torqued onto the abutment.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item-card">
+            <button class="faq-question-trigger" aria-expanded="false">
+              <span>What is the lifetime clinical success rate of Dentiva implants?</span>
+              <span class="faq-icon-rotator">+</span>
+            </button>
+            <div class="faq-answer-drawer">
+              <p>
+                Our clinical documentation reflects a 99.4% integration success rate. We utilize grade-4 surgical titanium fixtures manufactured by Straumann (Switzerland) and Nobel Biocare (Sweden), backed by a comprehensive lifetime manufacturer warranty.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Category 2: Cosmetic Dentistry (Veneers & Whitening) -->
+      <div style="max-width: 820px; margin: 0 auto 48px;">
+        <h3 style="font-family: var(--font-heading); font-size: 1.3rem; font-weight: 700; color: var(--text-dark); margin-bottom: 20px; display: flex; align-items: center; gap: 8px;">
+          <span style="color: var(--accent-blue);">✨</span> Cosmetic Veneers &amp; Laser Whitening
+        </h3>
+
+        <div class="faq-accordion-container">
+          <div class="faq-item-card">
+            <button class="faq-question-trigger" aria-expanded="false">
+              <span>Will my teeth need to be ground down for porcelain veneers?</span>
+              <span class="faq-icon-rotator">+</span>
+            </button>
+            <div class="faq-answer-drawer">
+              <p>
+                No. Dentiva specializes in minimally invasive "micro-prep" feldspathic ceramic veneers. We only contour 0.2mm to 0.3mm of the outermost enamel layer—equivalent to the thickness of a contact lens. We never aggressively file healthy teeth down to pegs.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item-card">
+            <button class="faq-question-trigger" aria-expanded="false">
+              <span>Does laser cold-light whitening damage tooth enamel or cause nerve sensitivity?</span>
+              <span class="faq-icon-rotator">+</span>
+            </button>
+            <div class="faq-answer-drawer">
+              <p>
+                Dentiva's proprietary cold-light laser utilizes photothermal filtration that operates at ambient oral temperature, preventing pulp chamber overheating. Additionally, our bleaching gel contains potassium nitrate and amorphous calcium phosphate (ACP) to seal enamel dentinal tubules, resulting in virtually zero sensitivity.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Category 3: Pain Management & Financing -->
+      <div style="max-width: 820px; margin: 0 auto 48px;">
+        <h3 style="font-family: var(--font-heading); font-size: 1.3rem; font-weight: 700; color: var(--text-dark); margin-bottom: 20px; display: flex; align-items: center; gap: 8px;">
+          <span style="color: var(--accent-blue);">💳</span> Financing, Insurance &amp; Sedation
+        </h3>
+
+        <div class="faq-accordion-container">
+          <div class="faq-item-card">
+            <button class="faq-question-trigger" aria-expanded="false">
+              <span>How do 0% APR financing payment plans work?</span>
+              <span class="faq-icon-rotator">+</span>
+            </button>
+            <div class="faq-answer-drawer">
+              <p>
+                We offer interest-free monthly financing for up to 12 and 24 months through our regulated healthcare credit partners (such as Chrysalis Finance). Applications take less than 3 minutes online with an instant soft credit check that does not impact your credit score.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item-card">
+            <button class="faq-question-trigger" aria-expanded="false">
+              <span>I suffer from severe dental phobia. What sedation options are available?</span>
+              <span class="faq-icon-rotator">+</span>
+            </button>
+            <div class="faq-answer-drawer">
+              <p>
+                We offer three levels of anxiety management: (1) Computerized Wand painless micro-numbing, (2) Inhalation sedation (nitrous oxide / happy air), and (3) Certified Consultant IV twilight conscious sedation, allowing you to relax comfortably throughout the procedure with zero memory of the dental work.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Still Have Questions Callout Box -->
+      <div style="background: var(--bg-pale-blue); border-radius: var(--radius-card); padding: 40px; max-width: 820px; margin: 0 auto; text-align: center;">
+        <h4 style="font-family: var(--font-heading); font-size: 1.35rem; font-weight: 700; margin-bottom: 8px;">Still have a specific clinical question?</h4>
+        <p style="color: var(--text-body); font-size: 0.95rem; margin-bottom: 24px;">Our clinical concierge and nurse coordinators are on standby to give you instant personal guidance.</p>
+        <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
+          <button class="btn-cta-sharp" onclick="window.openAppointmentModal()">
+            <span>Book Clinical Q&amp;A Session</span>
+            <span class="btn-arrow">➔</span>
+          </button>
+          <a href="https://m.me/dentivalondon" target="_blank" rel="noopener noreferrer" class="btn-black-pill" style="background: var(--messenger-blue); border-color: var(--messenger-blue);">
+            <span>Chat Live on Messenger</span>
+            <span class="btn-arrow">➔</span>
+          </a>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer" id="contact">
+      <div class="footer-container">
+        <div class="footer-top-row">
+          <div class="footer-brand">
+            <div class="brand-logo">
+              <div class="logo-hexagon">
+                <svg viewBox="0 0 32 32" width="18" height="18" fill="none">
+                  <path d="M16 2 L28 9 L28 23 L16 30 L4 23 L4 9 Z" fill="#111111"/>
+                  <path d="M11 15 C11 12, 13 10, 16 10 C19 10, 21 12, 21 15 C21 19, 19 22, 16 22 C13 22, 11 19, 11 15 Z" fill="none" stroke="#FFFFFF" stroke-width="1.8"/>
+                </svg>
+              </div>
+              <span class="brand-name">Dentiva</span>
+            </div>
+            <p class="footer-tagline">
+              Reinventing dentistry with state-of-the-art titanium implants, painless restorative care, and bespoke smile architecture.
+            </p>
+          </div>
+
+          <div class="footer-nav-col">
+            <span class="footer-col-title">Services</span>
+            <a href="services.html#implants">Dental Implants</a>
+            <a href="services.html#veneers">Porcelain Veneers</a>
+            <a href="services.html#whitening">Laser Whitening</a>
+            <a href="services.html#checkup">Comprehensive Exams</a>
+          </div>
+
+          <div class="footer-nav-col">
+            <span class="footer-col-title">Patient Portal</span>
+            <a href="before-after.html">Before &amp; After Cases</a>
+            <a href="reviews.html">Verified Patient Stories</a>
+            <a href="faq.html">FAQ &amp; Financing</a>
+            <a href="contact.html">Our London Clinics</a>
+          </div>
+
+          <div class="footer-nav-col">
+            <span class="footer-col-title">Opening Hours</span>
+            <p class="hours-text">Mon - Fri: 09:00 - 18:00</p>
+            <p class="hours-text">Saturday: 09:00 - 16:00</p>
+            <p class="hours-text">Sunday: Emergency On-Call</p>
+          </div>
+        </div>
+
+        <div class="footer-bottom-bar">
+          <p>© 2026 Dentiva Dental Clinic. All Rights Reserved.</p>
+          <div class="footer-legals">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Patient Rights</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- INTERACTIVE APPOINTMENT MODAL -->
+  <div class="modal-overlay" id="appointmentModal" aria-hidden="true">
+    <div class="modal-container" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close modal">✕</button>
+      
+      <div class="modal-header">
+        <div class="pill-badge" style="margin-bottom: 8px;">
+          <span class="badge-star">★</span>
+          <span>Dentiva Appointment</span>
+        </div>
+        <h3 id="modalTitle" class="modal-heading">Book Your Consultation</h3>
+        <p class="modal-sub">Select your desired service and preferred appointment slot.</p>
+      </div>
+
+      <form class="appointment-form" id="bookingForm" onsubmit="event.preventDefault(); window.handleBookingSubmit();">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="patientName">Full Name</label>
+            <input type="text" id="patientName" placeholder="e.g. Sarah Jenkins" required />
+          </div>
+          <div class="form-group">
+            <label for="patientPhone">Phone Number</label>
+            <input type="tel" id="patientPhone" placeholder="+44 20 7946 0912" required />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="treatmentSelect">Treatment Type</label>
+          <select id="treatmentSelect" required>
+            <option value="implant">Dental Titanium Implant &amp; Crown</option>
+            <option value="checkup">Vibrant Comprehensive Checkup</option>
+            <option value="cleaning">Revitalized Prophylaxis Cleaning</option>
+            <option value="filling">Reinforced Aesthetic Fillings</option>
+            <option value="other">Other Consultation</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="prefDate">Preferred Date</label>
+            <input type="date" id="prefDate" required />
+          </div>
+          <div class="form-group">
+            <label for="prefTime">Preferred Time</label>
+            <select id="prefTime" required>
+              <option value="morning">Morning (09:00 - 12:00)</option>
+              <option value="afternoon">Afternoon (12:00 - 15:00)</option>
+              <option value="evening">Late Afternoon (15:00 - 18:00)</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-black-pill submit-btn">
+          <span>Confirm Booking Request</span>
+          <span class="btn-arrow">➔</span>
+        </button>
+        <p class="form-disclaimer">No deposit required. Our clinic concierge will confirm within 2 hours.</p>
+      </form>
+
+      <div class="booking-success" id="bookingSuccess" style="display: none;">
+        <div class="success-icon">✓</div>
+        <h4>Appointment Requested!</h4>
+        <p>Thank you. Our London clinic coordinator will contact you shortly to finalize your appointment details.</p>
+        <button class="btn-black-pill" onclick="window.closeAppointmentModal()" style="margin-top: 16px;">Done</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FLOATING CONCIERGE DUAL-MODE MESSENGER WIDGET -->
+  <aside class="floating-messenger-widget" id="messengerWidget" aria-label="Dentiva Messenger Concierge">
+    <!-- Chat Popup Window -->
+    <div class="messenger-chat-modal" id="messengerChatModal" role="dialog" aria-modal="false" aria-label="Dentiva Messenger Concierge">
+      <!-- Header -->
+      <div class="messenger-modal-header">
+        <div class="messenger-avatar-info">
+          <div class="messenger-avatar-circle">D</div>
+          <div class="messenger-text-meta">
+            <span class="messenger-title">Dentiva Concierge</span>
+            <span class="messenger-status-sub">
+              <span class="status-green-dot"></span>
+              Online • Replies Instantly
+            </span>
+          </div>
+        </div>
+        <button class="messenger-close-btn" id="messengerCloseBtn" aria-label="Close Messenger Chat">✕</button>
+      </div>
+
+      <!-- Segmented Dual-Mode Switcher -->
+      <div class="messenger-channel-tabs" role="tablist">
+        <button class="messenger-channel-tab active" id="tabBubbleChat" type="button" role="tab" aria-selected="true">
+          <span>💬</span> Chat in Bubble
+        </button>
+        <button class="messenger-channel-tab" id="tabDirectMessenger" type="button" role="tab" aria-selected="false">
+          <span>⚡</span> Open Messenger
+        </button>
+      </div>
+
+      <!-- Option 1: In-Bubble Chat View -->
+      <div class="messenger-bubble-chat-view" id="bubbleChatView">
+        <div class="chat-modal-body" id="chatMessagesContainer">
+          <div class="chat-bubble-bot">
+            Hello! 👋 Welcome to Dentiva London. How can Dr. Sterling's concierge team assist your smile today?
+          </div>
+          <div class="chat-quick-options" id="chatQuickOptions">
+            <button class="chat-option-btn" type="button" data-action="book">
+              <span>📅 Book Consultation</span>
+              <span>➔</span>
+            </button>
+            <button class="chat-option-btn" type="button" data-action="whitening">
+              <span>✨ Laser Whitening Pricing</span>
+              <span>➔</span>
+            </button>
+            <button class="chat-option-btn" type="button" data-action="implant">
+              <span>🦷 3D Dental Implant Info</span>
+              <span>➔</span>
+            </button>
+            <button class="chat-option-btn" type="button" data-action="messenger-direct">
+              <span>⚡ Switch to Messenger App</span>
+              <span>➔</span>
+            </button>
+          </div>
+        </div>
+
+        <form class="chat-modal-footer" id="messengerChatForm" onsubmit="event.preventDefault(); window.sendConciergeMessage();">
+          <input 
+            type="text" 
+            id="chatInputField" 
+            class="chat-input-field" 
+            placeholder="Ask Dr. Sterling's team..." 
+            autocomplete="off"
+          />
+          <button type="submit" class="chat-send-btn" id="chatSendBtn" aria-label="Send Message">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="22" y1="2" x2="11" y2="13"></line>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+            </svg>
+          </button>
+        </form>
+      </div>
+
+      <!-- Option 2: Direct Messenger Redirect Card -->
+      <div class="messenger-direct-card" id="directMessengerCard">
+        <div class="messenger-direct-icon">
+          <svg viewBox="0 0 28 28" width="30" height="30" fill="currentColor">
+            <path d="M14 2C7.373 2 2 6.953 2 13.06c0 3.48 1.745 6.577 4.475 8.527V26l4.248-2.332c1.047.29 2.152.452 3.277.452 6.627 0 12-4.953 12-11.06C26 6.953 20.627 2 14 2zm1.385 14.89l-3.076-3.28-6.002 3.28 6.603-7.01 3.153 3.28 5.925-3.28-6.603 7.01z"/>
+          </svg>
+        </div>
+        <div class="messenger-direct-heading">Chat on Meta Messenger</div>
+        <p class="messenger-direct-desc">
+          Prefer chatting directly in the Facebook Messenger app? Connect with our clinic concierge team at @dentivalondon.
+        </p>
+        <a href="https://m.me/dentivalondon" target="_blank" rel="noopener noreferrer" class="btn-open-messenger">
+          <span>Open in Messenger App</span>
+          <span>↗</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Floating Circular Launcher Button -->
+    <button class="messenger-launcher-btn" id="messengerLauncherBtn" aria-label="Open Dentiva Messenger Concierge" title="Chat with Dentiva on Messenger">
+      <span class="messenger-pulse-ring" aria-hidden="true"></span>
+      <span class="messenger-online-badge" aria-hidden="true"></span>
+      <svg viewBox="0 0 28 28" class="messenger-icon-svg" aria-hidden="true">
+        <path d="M14 2C7.373 2 2 6.953 2 13.06c0 3.48 1.745 6.577 4.475 8.527V26l4.248-2.332c1.047.29 2.152.452 3.277.452 6.627 0 12-4.953 12-11.06C26 6.953 20.627 2 14 2zm1.385 14.89l-3.076-3.28-6.002 3.28 6.603-7.01 3.153 3.28 5.925-3.28-6.603 7.01z"/>
+      </svg>
+    </button>
+  </aside>
+
+  <!-- Script -->
+  <script src="script.js"></script>
+  <script>
+    // Live Search Filter for FAQ page
+    window.filterFAQs = function(query) {
+      const q = query.toLowerCase().trim();
+      const items = document.querySelectorAll('.faq-item-card');
+      items.forEach(item => {
+        const text = item.textContent.toLowerCase();
+        if (!q || text.includes(q)) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    };
+  </script>
+</body>
+</html>

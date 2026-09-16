@@ -1,0 +1,591 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Dental Services &amp; Treatments — Dentiva Philippines (BGC &amp; Makati)</title>
+  <meta name="description" content="Explore Dentiva's full clinical spectrum: 3D guided dental implants, handcrafted porcelain veneers, cold-light laser whitening, and painless restorative care in BGC &amp; Makati, Philippines." />
+  
+  <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,300&display=swap" rel="stylesheet" />
+  
+  <!-- Stylesheet -->
+    <link rel="icon" type="image/jpeg" href="assets/dentist_logo.jpg" />
+  <link rel="stylesheet" href="style.css" />
+  
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <!-- Lenis Smooth Momentum Scroll -->
+  <script src="assets/lenis.min.js"></script>
+</head>
+<body>
+
+  <div class="page-wrapper">
+    
+    <!-- SITE HEADER / NAVBAR -->
+    <header class="site-header-wrapper" id="siteHeader">
+      <nav class="navbar" id="navbar">
+        <a href="index.html" class="brand-logo" aria-label="Dentiva Dental Clinic Home">
+          <img src="assets/dentist_logo.jpg" style="height: 42px; width: 42px; object-fit: cover; border-radius: 50%;" />
+        </a>
+
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="services.html" class="nav-link active">Our Services</a></li>
+          <li><a href="before-after.html" class="nav-link">Before &amp; After</a></li>
+          <li><a href="reviews.html" class="nav-link">Patient Stories</a></li>
+          <li><a href="faq.html" class="nav-link">FAQ</a></li>
+          <li><a href="contact.html" class="nav-link">Our Clinics</a></li>
+          <li><a href="booking.html" class="nav-link nav-book-link" style="color: var(--accent-teal); font-weight: 600;">Book Online</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <div class="lang-selector" id="langBtn" tabindex="0" role="button" aria-label="Select Language">
+            <span class="lang-globe-icon">🌐</span>
+            <span>EN</span>
+          </div>
+          <a href="booking.html" class="btn-signin" id="signinBtn">Book Visit</a>
+          <button class="menu-toggle" id="menuToggle" aria-label="Toggle Navigation Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </nav>
+
+      <!-- Mobile Dropdown Menu -->
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html" class="mobile-link">Home</a>
+        <a href="services.html" class="mobile-link active">Our Services</a>
+        <a href="before-after.html" class="mobile-link">Before &amp; After</a>
+        <a href="reviews.html" class="mobile-link">Patient Stories</a>
+        <a href="faq.html" class="mobile-link">FAQ</a>
+        <a href="contact.html" class="mobile-link">Our Clinics</a>
+        <a href="booking.html" class="mobile-link mobile-book-highlight">Book Online ➔</a>
+        <div class="mobile-menu-actions">
+          <a href="booking.html" class="btn-signin mobile-btn-signin">Book Consultation</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- SUBPAGE HERO BANNER -->
+    <section class="subpage-hero">
+      <div class="subpage-breadcrumbs">
+        <a href="index.html">Home</a>
+        <span>/</span>
+        <span>Our Services</span>
+      </div>
+      <h1 class="subpage-title">Advanced Dental Care,<br />Engineered for Natural Perfection.</h1>
+      <p class="subpage-desc">
+        From robotic 3D-guided titanium implants to micro-thin handcrafted porcelain veneers and zero-sensitivity laser whitening, explore our full spectrum of specialized dental treatments in BGC &amp; Makati, Philippines.
+      </p>
+    </section>
+
+    <!-- SERVICES COMPREHENSIVE CATALOG -->
+    <section class="services-wrapper" style="margin-top: 0; background: transparent; padding-top: 20px;">
+      <div class="dark-services-container" style="border-radius: var(--radius-hero); padding: 56px 44px;">
+        
+        <div class="dark-header-row" style="margin-bottom: 48px;">
+          <div class="header-left">
+            <div class="pill-badge" style="background: rgba(255, 255, 255, 0.12); color: #FFFFFF; border-color: rgba(255, 255, 255, 0.2); margin-bottom: 14px;">
+              <span class="badge-star">★</span>
+              <span>Clinical Portfolio</span>
+            </div>
+            <h2 class="dark-title">Bespoke Treatments Tailored to Your Smile</h2>
+          </div>
+          <div class="header-right">
+            <p class="dark-subtitle">
+              Every procedure is guided by digital 3D scans, pain-free sedation protocols, and biocompatible Swiss &amp; German materials for enduring clinical excellence.
+            </p>
+          </div>
+        </div>
+
+        <!-- Comprehensive 3x Grid of Services -->
+        <div class="service-cards-grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));">
+          
+          <!-- Treatment 1: Titanium Implants -->
+          <article class="service-card" id="implants">
+            <div class="card-media">
+              <img src="assets/dental_implant_3d.png" alt="3D Dental Titanium Implant" class="card-img" style="object-fit: contain; background: #0F172A; padding: 16px;" />
+              <div class="card-tag">Surgical Excellence</div>
+            </div>
+            <div class="card-body">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <h3 class="card-title" style="margin-bottom: 0;">Titanium Dental Implants</h3>
+                <span style="color: #178782; font-weight: 700; font-size: 0.95rem;">From ₱65,000</span>
+              </div>
+              <p class="card-text">
+                Permanent, biocompatible tooth replacement with 3D CBCT guided surgical accuracy and custom zirconia ceramic crown. Zero disruption to adjacent healthy teeth.
+              </p>
+              <div style="margin-top: 18px; display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 0.78rem; color: #94A3B8;">99.4% Integration • Lifetime Warranty</span>
+                <a href="booking.html?treatment=implant" class="btn-black-pill" style="padding: 8px 16px; font-size: 0.8rem; text-decoration: none;">
+                  <span>Consult</span>
+                  <span class="btn-arrow">➔</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Treatment 2: Handcrafted Veneers -->
+          <article class="service-card" id="veneers">
+            <div class="card-media">
+              <img src="assets/after_veneers.jpg" alt="Porcelain Veneers Smile Result" class="card-img" />
+              <div class="card-tag">Cosmetic Artistry</div>
+            </div>
+            <div class="card-body">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <h3 class="card-title" style="margin-bottom: 0;">Porcelain Ceramic Veneers</h3>
+                <span style="color: #178782; font-weight: 700; font-size: 0.95rem;">From ₱22,000 / tooth</span>
+              </div>
+              <p class="card-text">
+                Ultra-thin 0.3mm handcrafted porcelain veneers that close diastemas (gaps), fix micro-fractures, and create a seamless, luminous red-carpet smile with minimal enamel reduction.
+              </p>
+              <div style="margin-top: 18px; display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 0.78rem; color: #94A3B8;">2 Appointments • 15+ Year Life</span>
+                <a href="booking.html?treatment=veneers" class="btn-black-pill" style="padding: 8px 16px; font-size: 0.8rem; text-decoration: none;">
+                  <span>Consult</span>
+                  <span class="btn-arrow">➔</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Treatment 3: Laser Whitening -->
+          <article class="service-card" id="whitening">
+            <div class="card-media">
+              <img src="assets/after_whitening.jpg" alt="Laser Whitening Bright Smile" class="card-img" />
+              <div class="card-tag">Cosmetic Brightening</div>
+            </div>
+            <div class="card-body">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <h3 class="card-title" style="margin-bottom: 0;">Laser Cold-Light Whitening</h3>
+                <span style="color: #178782; font-weight: 700; font-size: 0.95rem;">₱9,500 Complete</span>
+              </div>
+              <p class="card-text">
+                Safe, high-potency in-chair laser bleaching that lifts tea, coffee, wine, and age stains up to 8 shades in a single 45-minute appointment with desensitizing thermal barrier technology.
+              </p>
+              <div style="margin-top: 18px; display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 0.78rem; color: #94A3B8;">45 Min Session • 0% Sensitivity</span>
+                <a href="booking.html?treatment=whitening" class="btn-black-pill" style="padding: 8px 16px; font-size: 0.8rem; text-decoration: none;">
+                  <span>Consult</span>
+                  <span class="btn-arrow">➔</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Treatment 4: Vibrant Checkup -->
+          <article class="service-card" id="checkup">
+            <div class="card-media">
+              <img src="assets/service_checkup.jpg" alt="Dentist Diagnostic Examination" class="card-img" />
+              <div class="card-tag">Diagnostic Care</div>
+            </div>
+            <div class="card-body">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <h3 class="card-title" style="margin-bottom: 0;">Vibrant Comprehensive Exam</h3>
+                <span style="color: #178782; font-weight: 700; font-size: 0.95rem;">₱1,500</span>
+              </div>
+              <p class="card-text">
+                Full 360-degree digital oral health examination including intraoral photography, digital low-dose X-rays, oral cancer screening, and gum health pocket staging.
+              </p>
+              <div style="margin-top: 18px; display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 0.78rem; color: #94A3B8;">30 Min Exam • Free Panorex</span>
+                <a href="booking.html?treatment=checkup" class="btn-black-pill" style="padding: 8px 16px; font-size: 0.8rem; text-decoration: none;">
+                  <span>Consult</span>
+                  <span class="btn-arrow">➔</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Treatment 5: Prophylaxis Ultrasonic Cleaning -->
+          <article class="service-card" id="cleaning">
+            <div class="card-media">
+              <img src="assets/service_cleaning.jpg" alt="Ultrasonic Hygiene Cleaning" class="card-img" />
+              <div class="card-tag">Hygiene &amp; Wellness</div>
+            </div>
+            <div class="card-body">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <h3 class="card-title" style="margin-bottom: 0;">Oral Prophylaxis / Cleaning</h3>
+                <span style="color: #178782; font-weight: 700; font-size: 0.95rem;">₱1,800</span>
+              </div>
+              <p class="card-text">
+                Gentle calculus scaling and air-flow polishing using ultrafine glycine powder. Eliminates deep bio-film, restores natural tooth smoothness, and leaves breath fresh.
+              </p>
+              <div style="margin-top: 18px; display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 0.78rem; color: #94A3B8;">Stain Removal • Fresh Breath</span>
+                <a href="booking.html?treatment=cleaning" class="btn-black-pill" style="padding: 8px 16px; font-size: 0.8rem; text-decoration: none;">
+                  <span>Consult</span>
+                  <span class="btn-arrow">➔</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Treatment 6: Reinforced Fillings -->
+          <article class="service-card" id="fillings">
+            <div class="card-media">
+              <img src="assets/service_fillings.jpg" alt="Composite Restorative Filling" class="card-img" />
+              <div class="card-tag">Biomimetic Restoration</div>
+            </div>
+            <div class="card-body">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <h3 class="card-title" style="margin-bottom: 0;">Composite Aesthetic Fillings</h3>
+                <span style="color: #178782; font-weight: 700; font-size: 0.95rem;">From ₱1,800</span>
+              </div>
+              <p class="card-text">
+                Mercury-free, tooth-colored micro-hybrid composite fillings that mimic the natural compressive strength and enamel elasticity of organic dentition.
+              </p>
+              <div style="margin-top: 18px; display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 0.78rem; color: #94A3B8;">Seamless Match • 1 Appointment</span>
+                <a href="booking.html?treatment=filling" class="btn-black-pill" style="padding: 8px 16px; font-size: 0.8rem; text-decoration: none;">
+                  <span>Consult</span>
+                  <span class="btn-arrow">➔</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Treatment 7: Orthodontics -->
+          <article class="service-card" id="ortho">
+            <div class="card-media">
+              <img src="assets/service_orthodontics.jpg" alt="Orthodontic Braces Teeth Alignment" class="card-img" />
+              <div class="card-tag">Orthodontics</div>
+            </div>
+            <div class="card-body">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <h3 class="card-title" style="margin-bottom: 0;">Orthodontics & Braces</h3>
+                <span style="color: #178782; font-weight: 700; font-size: 0.95rem;">From ₱25,000</span>
+              </div>
+              <p class="card-text">
+                Metal and ceramic dental braces, clear retainers, and bite correction using modern digital arch-wire planning. Personalized tooth alignment for teenagers and adults seeking a confident, straight smile.
+              </p>
+              <div style="margin-top: 18px; display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 0.78rem; color: #94A3B8;">12–24 Months • Free Adjustments</span>
+                <a href="booking.html?treatment=ortho" class="btn-black-pill" style="padding: 8px 16px; font-size: 0.8rem; text-decoration: none;">
+                  <span>Consult</span>
+                  <span class="btn-arrow">➔</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Treatment 8: Oral Surgery -->
+          <article class="service-card" id="surgery">
+            <div class="card-media">
+              <img src="assets/service_oral_surgery.jpg" alt="Oral Surgery Wisdom Tooth Extraction" class="card-img" />
+              <div class="card-tag">Surgical Excellence</div>
+            </div>
+            <div class="card-body">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <h3 class="card-title" style="margin-bottom: 0;">Oral Surgery & Extractions</h3>
+                <span style="color: #178782; font-weight: 700; font-size: 0.95rem;">From ₱3,500</span>
+              </div>
+              <p class="card-text">
+                Surgical extraction of painful impacted wisdom teeth, complex multi-rooted extractions, bone preservation for future implants, and gentle minor oral surgical procedures under precision local anesthesia.
+              </p>
+              <div style="margin-top: 18px; display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 0.78rem; color: #94A3B8;">Same-Day Surgery • Pain-Free</span>
+                <a href="booking.html?treatment=surgery" class="btn-black-pill" style="padding: 8px 16px; font-size: 0.8rem; text-decoration: none;">
+                  <span>Consult</span>
+                  <span class="btn-arrow">➔</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- THE DENTIVA CLINICAL PROTOCOL (4-Step Workflow) -->
+    <section style="background: #FFFFFF; border-radius: var(--radius-hero); padding: 72px 48px; margin: 32px 0;">
+      <div style="text-align: center; max-width: 680px; margin: 0 auto 48px;">
+        <div class="pill-badge" style="margin-bottom: 12px; display: inline-flex;">
+          <span class="badge-star">✦</span>
+          <span>Precision Dentistry</span>
+        </div>
+        <h2 style="font-family: var(--font-heading); font-size: clamp(2rem, 3.2vw, 2.8rem); font-weight: 700; color: var(--text-dark); letter-spacing: -0.02em; margin-bottom: 12px;">
+          The 4-Step Dentiva Protocol
+        </h2>
+        <p style="color: var(--text-body); font-size: 1rem; line-height: 1.6;">
+          Every procedure follows our standardized BGC &amp; Makati clinical roadmap to guarantee zero-stress, predictable aesthetic results.
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px;">
+        <div style="background: #F8FAFC; border: 1px solid rgba(20, 22, 24, 0.06); border-radius: var(--radius-card); padding: 32px 24px;">
+          <div style="font-family: var(--font-heading); font-size: 2.2rem; font-weight: 800; color: var(--accent-blue); margin-bottom: 12px;">01</div>
+          <h3 style="font-family: var(--font-heading); font-size: 1.15rem; font-weight: 700; margin-bottom: 8px;">3D Scan &amp; Virtual Smile Simulation</h3>
+          <p style="font-size: 0.88rem; color: var(--text-body); line-height: 1.6;">
+            We capture 10,000 intraoral data points within 60 seconds with no gooey impression trays. Preview your finished smile before any work begins.
+          </p>
+        </div>
+
+        <div style="background: #F8FAFC; border: 1px solid rgba(20, 22, 24, 0.06); border-radius: var(--radius-card); padding: 32px 24px;">
+          <div style="font-family: var(--font-heading); font-size: 2.2rem; font-weight: 800; color: var(--accent-blue); margin-bottom: 12px;">02</div>
+          <h3 style="font-family: var(--font-heading); font-size: 1.15rem; font-weight: 700; margin-bottom: 8px;">Painless Computerized Numbing</h3>
+          <p style="font-size: 0.88rem; color: var(--text-body); line-height: 1.6;">
+            Our Wand computerized delivery system releases anesthetic at single-drop micro-speed, eliminating the sting and pressure of conventional syringes.
+          </p>
+        </div>
+
+        <div style="background: #F8FAFC; border: 1px solid rgba(20, 22, 24, 0.06); border-radius: var(--radius-card); padding: 32px 24px;">
+          <div style="font-family: var(--font-heading); font-size: 2.2rem; font-weight: 800; color: var(--accent-blue); margin-bottom: 12px;">03</div>
+          <h3 style="font-family: var(--font-heading); font-size: 1.15rem; font-weight: 700; margin-bottom: 8px;">Robotic Milling &amp; Layering</h3>
+          <p style="font-size: 0.88rem; color: var(--text-body); line-height: 1.6;">
+            Crowns and veneers are custom-milled from Swiss monolithic ceramic blocks, hand-glazed and color-matched under surgical microscopy.
+          </p>
+        </div>
+
+        <div style="background: #F8FAFC; border: 1px solid rgba(20, 22, 24, 0.06); border-radius: var(--radius-card); padding: 32px 24px;">
+          <div style="font-family: var(--font-heading); font-size: 2.2rem; font-weight: 800; color: var(--accent-blue); margin-bottom: 12px;">04</div>
+          <h3 style="font-family: var(--font-heading); font-size: 1.15rem; font-weight: 700; margin-bottom: 8px;">Bespoke Aftercare &amp; Longevity</h3>
+          <p style="font-size: 0.88rem; color: var(--text-body); line-height: 1.6;">
+            Receive custom maintenance protocols, protective night guards if requested, and guaranteed annual clinical follow-up checkups.
+          </p>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 48px;">
+        <a href="booking.html" class="btn-cta-sharp" style="display: inline-flex; text-decoration: none;">
+          <span>Schedule Clinical Consultation</span>
+          <span class="btn-arrow">➔</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer" id="contact">
+      <div class="footer-container">
+        
+        <div class="footer-top-row">
+          <div class="footer-brand">
+            <div class="brand-logo">
+              <div class="logo-hexagon">
+                <svg viewBox="0 0 32 32" width="18" height="18" fill="none">
+                  <path d="M16 2 L28 9 L28 23 L16 30 L4 23 L4 9 Z" fill="#111111"/>
+                  <path d="M11 15 C11 12, 13 10, 16 10 C19 10, 21 12, 21 15 C21 19, 19 22, 16 22 C13 22, 11 19, 11 15 Z" fill="none" stroke="#FFFFFF" stroke-width="1.8"/>
+                </svg>
+              </div>
+              <span class="brand-name">Dentiva</span>
+            </div>
+            <p class="footer-tagline">
+              Reinventing dentistry with state-of-the-art titanium implants, painless restorative care, and bespoke smile architecture.
+            </p>
+          </div>
+
+          <div class="footer-nav-col">
+            <span class="footer-col-title">Services</span>
+            <a href="services.html#implants">Dental Implants</a>
+            <a href="services.html#veneers">Porcelain Veneers</a>
+            <a href="services.html#whitening">Laser Whitening</a>
+            <a href="services.html#checkup">Comprehensive Exams</a>
+          </div>
+
+          <div class="footer-nav-col">
+            <span class="footer-col-title">Patient Portal</span>
+            <a href="before-after.html">Before &amp; After Cases</a>
+            <a href="reviews.html">Verified Patient Stories</a>
+            <a href="faq.html">FAQ &amp; Financing</a>
+            <a href="contact.html">Our Clinics (BGC &amp; Makati)</a>
+          </div>
+
+          <div class="footer-nav-col">
+            <span class="footer-col-title">Opening Hours</span>
+            <p class="hours-text">Mon - Sat: 09:00 - 18:00 PHT</p>
+            <p class="hours-text">Sunday: By Appointment / Emergency</p>
+          </div>
+        </div>
+
+        <div class="footer-bottom-bar">
+          <p>© 2026 Dentiva Dental Clinic Philippines. All Rights Reserved.</p>
+          <div class="footer-legals">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Patient Rights</a>
+          </div>
+        </div>
+
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- INTERACTIVE APPOINTMENT MODAL -->
+  <div class="modal-overlay" id="appointmentModal" aria-hidden="true">
+    <div class="modal-container" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close modal">✕</button>
+      
+      <div class="modal-header">
+        <div class="pill-badge" style="margin-bottom: 8px;">
+          <span class="badge-star">★</span>
+          <span>Dentiva Appointment</span>
+        </div>
+        <h3 id="modalTitle" class="modal-heading">Book Your Consultation</h3>
+        <p class="modal-sub">Select your desired service and preferred appointment slot.</p>
+      </div>
+
+      <form class="appointment-form" id="bookingForm" onsubmit="event.preventDefault(); window.handleBookingSubmit();">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="patientName">Full Name</label>
+            <input type="text" id="patientName" placeholder="e.g. Sarah Jenkins" required />
+          </div>
+          <div class="form-group">
+            <label for="patientPhone">Phone Number</label>
+            <input type="tel" id="patientPhone" placeholder="0917 123 4567" required />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="treatmentSelect">Treatment Type</label>
+          <select id="treatmentSelect" required>
+            <option value="implant">Dental Titanium Implant &amp; Crown</option>
+            <option value="checkup">Vibrant Comprehensive Checkup</option>
+            <option value="cleaning">Revitalized Prophylaxis Cleaning</option>
+            <option value="filling">Reinforced Aesthetic Fillings</option>
+            <option value="other">Other Consultation</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="prefDate">Preferred Date</label>
+            <input type="date" id="prefDate" required />
+          </div>
+          <div class="form-group">
+            <label for="prefTime">Preferred Time</label>
+            <select id="prefTime" required>
+              <option value="morning">Morning (09:00 - 12:00)</option>
+              <option value="afternoon">Afternoon (12:00 - 15:00)</option>
+              <option value="evening">Late Afternoon (15:00 - 18:00)</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-black-pill submit-btn">
+          <span>Confirm Booking Request</span>
+          <span class="btn-arrow">➔</span>
+        </button>
+        <p class="form-disclaimer">No deposit required. Our clinic concierge will confirm within 2 hours.</p>
+      </form>
+
+      <div class="booking-success" id="bookingSuccess" style="display: none;">
+        <div class="success-icon">✓</div>
+        <h4>Appointment Requested!</h4>
+        <p>Thank you. Our BGC &amp; Makati clinic coordinator will contact you shortly to finalize your appointment details.</p>
+        <button class="btn-black-pill" onclick="window.closeAppointmentModal()" style="margin-top: 16px;">Done</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FLOATING CONCIERGE DUAL-MODE MESSENGER WIDGET -->
+  <aside class="floating-messenger-widget" id="messengerWidget" aria-label="Dentiva Messenger Concierge">
+    <!-- Chat Popup Window -->
+    <div class="messenger-chat-modal" id="messengerChatModal" role="dialog" aria-modal="false" aria-label="Dentiva Messenger Concierge">
+      <!-- Header -->
+      <div class="messenger-modal-header">
+        <div class="messenger-avatar-info">
+          <div class="messenger-avatar-circle">D</div>
+          <div class="messenger-text-meta">
+            <span class="messenger-title">Dentiva Concierge</span>
+            <span class="messenger-status-sub">
+              <span class="status-green-dot"></span>
+              Online • Replies Instantly
+            </span>
+          </div>
+        </div>
+        <button class="messenger-close-btn" id="messengerCloseBtn" aria-label="Close Messenger Chat">✕</button>
+      </div>
+
+      <!-- Segmented Dual-Mode Switcher -->
+      <div class="messenger-channel-tabs" role="tablist">
+        <button class="messenger-channel-tab active" id="tabBubbleChat" type="button" role="tab" aria-selected="true">
+          <span>💬</span> Chat in Bubble
+        </button>
+        <button class="messenger-channel-tab" id="tabDirectMessenger" type="button" role="tab" aria-selected="false">
+          <span>⚡</span> Open Messenger
+        </button>
+      </div>
+
+      <!-- Option 1: In-Bubble Chat View -->
+      <div class="messenger-bubble-chat-view" id="bubbleChatView">
+        <div class="chat-modal-body" id="chatMessagesContainer">
+          <div class="chat-bubble-bot">
+            Mabuhay! 👋 Welcome to Dentiva Philippines. How can Dr. Patricia Santos and our concierge team assist your smile today?
+          </div>
+          <div class="chat-quick-options" id="chatQuickOptions">
+            <button class="chat-option-btn" type="button" data-action="book">
+              <span>📅 Book Consultation</span>
+              <span>➔</span>
+            </button>
+            <button class="chat-option-btn" type="button" data-action="whitening">
+              <span>✨ Laser Whitening Pricing</span>
+              <span>➔</span>
+            </button>
+            <button class="chat-option-btn" type="button" data-action="implant">
+              <span>🦷 3D Dental Implant Info</span>
+              <span>➔</span>
+            </button>
+            <button class="chat-option-btn" type="button" data-action="messenger-direct">
+              <span>⚡ Switch to Messenger App</span>
+              <span>➔</span>
+            </button>
+          </div>
+        </div>
+
+        <form class="chat-modal-footer" id="messengerChatForm" onsubmit="event.preventDefault(); window.sendConciergeMessage();">
+          <input 
+            type="text" 
+            id="chatInputField" 
+            class="chat-input-field" 
+            placeholder="Ask Dr. Santos' team..." 
+            autocomplete="off"
+          />
+          <button type="submit" class="chat-send-btn" id="chatSendBtn" aria-label="Send Message">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="22" y1="2" x2="11" y2="13"></line>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+            </svg>
+          </button>
+        </form>
+      </div>
+
+      <!-- Option 2: Direct Messenger Redirect Card -->
+      <div class="messenger-direct-card" id="directMessengerCard">
+        <div class="messenger-direct-icon">
+          <svg viewBox="0 0 28 28" width="30" height="30" fill="currentColor">
+            <path d="M14 2C7.373 2 2 6.953 2 13.06c0 3.48 1.745 6.577 4.475 8.527V26l4.248-2.332c1.047.29 2.152.452 3.277.452 6.627 0 12-4.953 12-11.06C26 6.953 20.627 2 14 2zm1.385 14.89l-3.076-3.28-6.002 3.28 6.603-7.01 3.153 3.28 5.925-3.28-6.603 7.01z"/>
+          </svg>
+        </div>
+        <div class="messenger-direct-heading">Chat on Meta Messenger</div>
+        <p class="messenger-direct-desc">
+          Prefer chatting directly in the Facebook Messenger app? Connect with our clinic concierge team at @dentivaphilippines.
+        </p>
+        <a href="https://m.me/dentivaphilippines" target="_blank" rel="noopener noreferrer" class="btn-open-messenger">
+          <span>Open in Messenger App</span>
+          <span>↗</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Floating Circular Launcher Button -->
+    <button class="messenger-launcher-btn" id="messengerLauncherBtn" aria-label="Open Dentiva Messenger Concierge" title="Chat with Dentiva on Messenger">
+      <span class="messenger-pulse-ring" aria-hidden="true"></span>
+      <span class="messenger-online-badge" aria-hidden="true"></span>
+      <svg viewBox="0 0 28 28" class="messenger-icon-svg" aria-hidden="true">
+        <path d="M14 2C7.373 2 2 6.953 2 13.06c0 3.48 1.745 6.577 4.475 8.527V26l4.248-2.332c1.047.29 2.152.452 3.277.452 6.627 0 12-4.953 12-11.06C26 6.953 20.627 2 14 2zm1.385 14.89l-3.076-3.28-6.002 3.28 6.603-7.01 3.153 3.28 5.925-3.28-6.603 7.01z"/>
+      </svg>
+    </button>
+  </aside>
+
+  <!-- Script -->
+  <script src="script.js"></script>
+</body>
+</html>

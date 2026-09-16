@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dentiva — Premier Dental Care &amp; Implant Center (BGC &amp; Makati, Philippines)</title>
+  <meta name="description" content="Dentiva provides premium, personalized dental treatments from 3D guided titanium implants to cosmetic veneers and general dentistry in BGC &amp; Makati City, Philippines." />
+  
+  <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,300&display=swap" rel="stylesheet" />
+  
+  <!-- Stylesheet -->
+    <link rel="icon" type="image/jpeg" href="assets/dentist_logo.jpg" />
+  <link rel="stylesheet" href="style.css" />
+  
+  <!-- GSAP & ScrollTrigger CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <!-- Lenis Smooth Momentum Scroll -->
+  <script src="assets/lenis.min.js"></script>
+</head>
+<body>
+
+  <!-- Main Canvas Wrapper -->
+  <div class="page-wrapper">
+
+    <!-- PHASE 2: STICKY GLOBAL HEADER & FROSTED GLASS NAVBAR -->
+    <header class="site-header-wrapper home-header" id="siteHeader">
+      <nav class="navbar" id="navbar">
+        <a href="index.html" class="brand-logo" aria-label="Dentiva Dental Clinic Home">
+          <img src="assets/dentist_logo.jpg" alt="Dentiva Dental Clinic" style="height: 42px; width: 42px; object-fit: cover; border-radius: 50%;" />
+        </a>
+
+        <!-- Center Nav Links -->
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link active">Home</a></li>
+          <li><a href="services.html" class="nav-link">Our Services</a></li>
+          <li><a href="before-after.html" class="nav-link">Before &amp; After</a></li>
+          <li><a href="reviews.html" class="nav-link">Patient Stories</a></li>
+          <li><a href="faq.html" class="nav-link">FAQ</a></li>
+          <li><a href="contact.html" class="nav-link">Our Clinics</a></li>
+          <li><a href="booking.html" class="nav-link nav-book-link" style="color: var(--accent-teal); font-weight: 600;">Book Online</a></li>
+        </ul>
+
+        <!-- Right Nav Actions -->
+        <div class="nav-actions">
+          <div class="lang-selector" id="langBtn" tabindex="0" role="button" aria-label="Select Language">
+            <span class="lang-globe-icon">🌐</span>
+            <span>EN</span>
+          </div>
+
+          <a href="booking.html" class="btn-signin" id="signinBtn">Book Visit</a>
+
+          <!-- Mobile Hamburger Toggle -->
+          <button class="menu-toggle" id="menuToggle" aria-label="Toggle Navigation Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </nav>
+
+      <!-- Mobile Dropdown Menu -->
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html" class="mobile-link active">Home</a>
+        <a href="services.html" class="mobile-link">Our Services</a>
+        <a href="before-after.html" class="mobile-link">Before &amp; After</a>
+        <a href="reviews.html" class="mobile-link">Patient Stories</a>
+        <a href="faq.html" class="mobile-link">FAQ</a>
+        <a href="contact.html" class="mobile-link">Our Clinics</a>
+        <a href="booking.html" class="mobile-link" style="color: var(--accent-teal); font-weight: 700;">Book Online ➔</a>
+        <div class="mobile-menu-actions">
+          <a href="booking.html" class="btn-signin" style="width: 100%; text-align: center; display: block;">Book Consultation</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- PHASE 1: HERO CONTAINER -->
+    <section class="hero-container" id="hero">
+      
+      <!-- HERO BACKGROUND VIDEO (Green 3D Tooth Centered in Middle, Looped, Muted) -->
+      <div class="hero-video-bg-container" aria-hidden="true">
+        <video 
+          src="dental_hero_video_green.mp4" 
+          autoplay 
+          loop 
+          muted 
+          playsinline 
+          class="hero-bg-video" 
+          id="heroBgVideo">
+        </video>
+        <div class="hero-video-tint-overlay"></div>
+      </div>
+
+      <!-- Phase 1: Faint Giant Background Watermark (z-index: 2) -->
+      <div class="hero-watermark" aria-hidden="true">Dentiva</div>
+
+      <!-- Hero Asymmetric Content Grid -->
+      <div class="hero-body">
+
+        <!-- PHASE 4: LEFT HEMISPHERE (Typography & CTA - z-index: 10) -->
+        <div class="hero-col hero-left">
+          
+          <!-- Top Badge: White pill with blue text -->
+          <div class="pill-badge">
+            <span class="badge-star">★</span>
+            <span class="badge-text">San Fernando City, La Union • Trusted Dental Care</span>
+          </div>
+
+          <!-- Main Headline (Split Style on desktop, continuous on mobile/tablet) -->
+          <h1 class="hero-heading">
+            <span class="heading-line-1">Exceptional</span>
+            <span class="heading-line-2">Dental Care</span>
+            <span class="heading-subline-mobile">&amp; Healthy Smile</span>
+          </h1>
+
+          <!-- Mobile Social Proof Avatars Pill (Matching Mobile Reference Design) -->
+          <div class="hero-mobile-avatars-row mobile-only">
+            <div class="hero-avatar-stack">
+              <img src="assets/patient_sarah.jpg" alt="Patient" class="hero-mini-avatar" />
+              <img src="assets/patient_david.jpg" alt="Patient" class="hero-mini-avatar" />
+              <span class="hero-avatar-counter">+2k</span>
+            </div>
+            <span class="hero-avatar-text">Happy Smiles in La Union</span>
+          </div>
+
+          <!-- Subtext (Accurate Clinical Copy) -->
+          <p class="hero-description">
+            We offer General Dentistry and specialized services in Orthodontics, Oral Surgery, and Pedodontics in San Fernando City, La Union.
+          </p>
+
+          <!-- CTA Button Group -->
+          <div class="hero-cta-group">
+            <a href="booking.html" class="btn-cta-sharp" id="bookAppointmentBtn">
+              <span>Book Appointment</span>
+              <span class="btn-arrow">➔</span>
+            </a>
+          </div>
+
+          <!-- Lower Stat: • 827+ (Large, thin) - Desktop View -->
+          <div class="hero-bottom-stat desktop-only">
+            <div class="stat-dot-number">
+              <span class="stat-bullet-sym">•</span>
+              <span class="stat-big-val" data-target="827">827+</span>
+            </div>
+            <p class="stat-sub-caption">
+              Healthy smiles transformed with gentle, specialized clinical care.
+            </p>
+          </div>
+
+        </div>
+
+        <!-- PHASE 3: CENTERPIECE (Desktop Annotations / Mobile Sized Tooth Video Card) -->
+        <div class="hero-centerpiece" id="implantCenterpiece">
+          
+          <!-- MOBILE DEDICATED TOOTH CARD (Directly below copy, smaller tooth with circular consultation badge) -->
+          <div class="hero-mobile-tooth-card" id="heroMobileToothCard">
+            <div class="mobile-tooth-video-frame">
+              <video 
+                src="dental_hero_video_green.mp4" 
+                autoplay 
+                loop 
+                muted 
+                playsinline 
+                class="mobile-tooth-video"
+                aria-label="3D Dental Tooth Showcase">
+              </video>
+              <div class="mobile-tooth-card-sheen"></div>
+
+              <!-- Circular Floating Consultation Badge matching reference design -->
+              <a href="booking.html" class="tooth-consult-badge" aria-label="Book Your Consultation">
+                <svg class="badge-circular-text" viewBox="0 0 100 100">
+                  <defs>
+                    <path id="badgeCirclePath" d="M 50, 50 m -35, 0 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0" />
+                  </defs>
+                  <text font-size="9" font-weight="800" letter-spacing="2.3" fill="#141618">
+                    <textPath href="#badgeCirclePath" startOffset="0%">
+                      • BOOK YOUR CONSULTATION •
+                    </textPath>
+                  </text>
+                </svg>
+                <div class="badge-center-icon">
+                  <span class="badge-arrow">↗</span>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <!-- 3D Dental Implant Focal Anchor Container (Desktop View: z-index: 20) -->
+          <div class="implant-render-wrapper desktop-only" id="implantWrapper">
+            <div class="implant-focal-anchor" id="implantAnchor"></div>
+            <div class="implant-shadow-base"></div>
+          </div>
+
+          <!-- Annotations & SVG Canvas (Desktop View: z-index: 30) -->
+          <div class="annotations-overlay desktop-only" id="annotationsOverlay">
+            <!-- Callout 1: Orthodontics & Crown (Left of Implant) -->
+            <div class="implant-callout callout-left" id="calloutRootCanal">
+              <div class="callout-glass-card">
+                <span class="callout-title">Orthodontics &amp; Crown</span>
+              </div>
+            </div>
+
+            <!-- Callout 2: Oral Surgery & Abutment (Right of Implant) -->
+            <div class="implant-callout callout-right" id="calloutInvisalign">
+              <div class="callout-glass-card">
+                <span class="callout-title">Oral Surgery &amp; Abutment</span>
+              </div>
+            </div>
+
+            <!-- Thin, curved, semi-transparent white SVG paths ending in a tiny dot on the implant -->
+            <svg class="callout-svg-canvas" id="calloutSvgCanvas" aria-hidden="true">
+              <path id="leaderPathL" class="leader-svg-path" d="" />
+              <circle id="leaderDotL" class="leader-svg-dot" cx="0" cy="0" r="3.5" />
+
+              <path id="leaderPathR" class="leader-svg-path" d="" />
+              <circle id="leaderDotR" class="leader-svg-dot" cx="0" cy="0" r="3.5" />
+            </svg>
+          </div>
+
+        </div>
+
+        <!-- PHASE 5: RIGHT HEMISPHERE (Stats & Widgets - z-index: 10) -->
+        <div class="hero-col hero-right">
+          
+          <!-- Top Right Metadata -->
+          <div class="hero-top-info">
+            <div class="clinic-time-widget">
+              <span class="clinic-date">July 20, 2026</span>
+              <span class="clinic-status">We're Open Clinic</span>
+              <span class="clinic-hours">09 AM - 10 PM</span>
+            </div>
+            <div class="clinic-location-pill">
+              <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2 C8.13 2 5 5.13 5 9 C5 14.25 12 22 12 22 C12 22 19 14.25 19 9 C19 5.13 15.87 2 12 2 Z"></path>
+                <circle cx="12" cy="9" r="2.5"></circle>
+              </svg>
+              <span>BGC, Taguig • Philippines</span>
+            </div>
+          </div>
+
+
+          <!-- Headline Continuation (Split Style, sits behind 3D centerpiece at z-index: 10) - Desktop Only -->
+          <div class="hero-heading-continuation desktop-only">
+            <span class="heading-subline-1">&amp; Straight</span>
+            <span class="heading-subline-2">Smile</span>
+          </div>
+
+          <!-- Right-Aligned Stats (Vertical stack of 2 stats) - Desktop Only -->
+          <div class="hero-right-metrics desktop-only">
+            <div class="metric-row">
+              <span class="metric-num" data-target="170">170+</span>
+              <span class="metric-label">Performed<br />surgeries</span>
+            </div>
+            <div class="metric-row">
+              <span class="metric-num" data-target="85">85%</span>
+              <span class="metric-label">Satisfied<br />Clients</span>
+            </div>
+          </div>
+
+          <!-- Mobile & Tablet Unified Metrics Glass Card -->
+          <div class="hero-mobile-stats-card">
+            <div class="m-stat-col">
+              <span class="m-stat-val" data-target="827">827+</span>
+              <span class="m-stat-label">Smiles Transformed</span>
+            </div>
+            <div class="m-stat-divider"></div>
+            <div class="m-stat-col">
+              <span class="m-stat-val" data-target="170">170+</span>
+              <span class="m-stat-label">Surgeries Performed</span>
+            </div>
+            <div class="m-stat-divider"></div>
+            <div class="m-stat-col">
+              <span class="m-stat-val" data-target="85">85%</span>
+              <span class="m-stat-label">Satisfied Clients</span>
+            </div>
+          </div>
+
+        </div>
+
+        </div>
+
+      </div>
+
+    </header>
+
+    <!-- PHASE 3: THE STATISTICS RIBBON -->
+    <section class="stats-ribbon" id="stats">
+      <div class="stats-container">
+        
+        <!-- Stat Item 1 -->
+        <div class="stat-block">
+          <span class="stat-number" data-target="170">170</span>
+          <div class="stat-meta">
+            <span class="stat-label-line">Performed</span>
+            <span class="stat-label-line">surgeries</span>
+          </div>
+        </div>
+
+        <div class="stat-divider" aria-hidden="true"></div>
+
+        <!-- Stat Item 2 -->
+        <div class="stat-block">
+          <span class="stat-number" data-target="85">85</span>
+          <div class="stat-meta">
+            <span class="stat-label-line">Satisfied</span>
+            <span class="stat-label-line">Patients</span>
+          </div>
+        </div>
+
+        <div class="stat-divider" aria-hidden="true"></div>
+
+        <!-- Stat Item 3 -->
+        <div class="stat-block">
+          <span class="stat-number" data-target="176">176</span>
+          <div class="stat-meta">
+            <span class="stat-label-line">Staff</span>
+            <span class="stat-label-line">Members</span>
+          </div>
+        </div>
+
+        <div class="stat-divider" aria-hidden="true"></div>
+
+        <!-- Stat Item 4 -->
+        <div class="stat-block">
+          <span class="stat-number" data-target="98">98</span>
+          <div class="stat-meta">
+            <span class="stat-label-line">Yearly</span>
+            <span class="stat-label-line">Surgeries</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- INTERACTIVE BEFORE & AFTER TRANSFORMATION SECTION -->
+    <section class="before-after-section" id="before-after">
+      <div class="ba-header-row" style="text-align: center; max-width: 760px; margin: 0 auto 36px;">
+        <div class="pill-badge" style="margin-bottom: 12px; display: inline-flex;">
+          <span class="badge-star">★</span>
+          <span class="badge-text">Real Patient Transformations</span>
+        </div>
+        <h2 style="font-family: var(--font-heading); font-size: clamp(2rem, 3.5vw, 2.8rem); font-weight: 700; letter-spacing: -0.02em; color: var(--text-dark); margin-bottom: 12px;">
+          Witness the Power of Bespoke Smile Architecture
+        </h2>
+        <p style="color: var(--text-body); font-size: 1rem; line-height: 1.6;">
+          Drag the interactive slider below to inspect clinical shade improvements, alignment corrections, and ceramic gap closures achieved at Dentiva.
+        </p>
+      </div>
+
+      <!-- Treatment Filter Tabs -->
+      <div class="ba-controls-nav">
+        <button class="ba-tab-btn active" data-treatment="whitening">Laser Teeth Whitening</button>
+        <button class="ba-tab-btn" data-treatment="veneers">Handcrafted Porcelain Veneers</button>
+      </div>
+
+      <!-- Comparison Frame & Clinical Metrics -->
+      <div class="ba-display-container">
+        <!-- Interactive Split Comparison Viewport -->
+        <div class="ba-comparison-frame" id="baComparisonFrame">
+          <!-- After Layer (Bottom / Full Width) -->
+          <div class="ba-img-layer ba-after-layer">
+            <img 
+              src="assets/after_whitening.jpg" 
+              alt="Teeth after professional laser whitening treatment" 
+              class="ba-inner-img" 
+              id="baAfterImg"
+            />
+            <span class="ba-tag-badge ba-tag-after">AFTER DENTIVA</span>
+          </div>
+
+          <!-- Before Layer (Top / Clipped by slider) -->
+          <div class="ba-img-layer ba-before-layer" id="baBeforeLayer" style="width: 50%;">
+            <img 
+              src="assets/before_whitening.jpg" 
+              alt="Teeth before whitening treatment showing stains and yellow discoloration" 
+              class="ba-inner-img" 
+              id="baBeforeImg"
+            />
+            <span class="ba-tag-badge ba-tag-before">BEFORE</span>
+          </div>
+
+          <!-- Draggable Divider Line & Handle -->
+          <div class="ba-handle-divider" id="baHandleDivider" style="left: 50%;">
+            <div class="ba-handle-button" id="baHandleBtn" aria-label="Drag to compare before and after">
+              <span>‹ ›</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Side Clinical Info Card -->
+        <div class="ba-info-card" id="baInfoCard">
+          <div class="pill-badge" style="align-self: flex-start;">
+            <span class="badge-star">✓</span>
+            <span class="badge-text" id="baCaseNumber">Case #8412 • Single Session</span>
+          </div>
+          <h3 class="ba-procedure-name" id="baTitle">Laser Cold-Light Whitening</h3>
+          <p class="ba-procedure-desc" id="baDesc">
+            Elimination of years of stubborn tea, coffee, and nicotine discoloration utilizing our 38% hydrogen peroxide medical-grade gel combined with photothermal green laser activation. Zero enamel stripping, maximum biocompatibility.
+          </p>
+
+          <div class="ba-metrics-grid">
+            <div class="ba-metric-pill">
+              <span class="ba-metric-val" id="baMetric1">8 Shades</span>
+              <span class="ba-metric-lbl">VITA Bleach Shade Shift</span>
+            </div>
+            <div class="ba-metric-pill">
+              <span class="ba-metric-val" id="baMetric2">45 Mins</span>
+              <span class="ba-metric-lbl">In-Chair Treatment Time</span>
+            </div>
+            <div class="ba-metric-pill">
+              <span class="ba-metric-val" id="baMetric3">0% Pain</span>
+              <span class="ba-metric-lbl">Sensitivity Neutralized</span>
+            </div>
+            <div class="ba-metric-pill">
+              <span class="ba-metric-val" id="baMetric4">3+ Years</span>
+              <span class="ba-metric-lbl">Clinical Longevity</span>
+            </div>
+          </div>
+
+          <div class="ba-cta-row">
+            <button class="btn-cta-sharp" onclick="window.openAppointmentModal('whitening')">
+              <span>Book Transformation</span>
+              <span class="btn-arrow">➔</span>
+            </button>
+            <a href="before-after.html" style="font-size: 0.92rem; font-weight: 600; color: var(--text-dark); text-decoration: underline;">
+              Explore All 48 Cases
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PHASE 4: DARK-MODE SERVICES SECTION -->
+    <section class="services-wrapper" id="services">
+      <div class="dark-services-container">
+        
+        <!-- Header -->
+        <div class="dark-header-row">
+          <div class="header-left">
+            <h2 class="dark-title">
+              Our Dental Services<br />
+              &amp; Specialized Care
+            </h2>
+          </div>
+          <div class="header-right">
+            <p class="dark-subtitle">
+              At Dentiva Dental Clinic, we offer General Dentistry alongside specialized dental expertise in Orthodontics, Oral Surgery, and Pedodontics in San Fernando City, La Union.
+            </p>
+          </div>
+        </div>
+
+        <!-- 4-Column Service Cards Grid -->
+        <div class="service-cards-grid" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));">
+          
+          <!-- Card 1: General Dentistry -->
+          <article class="service-card">
+            <div class="card-media">
+              <img 
+                src="assets/service_checkup.jpg" 
+                alt="General Dentistry at Dentiva Dental Clinic" 
+                class="card-img" 
+                loading="lazy"
+              />
+              <div class="card-tag">General Dentistry</div>
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">General Dentistry</h3>
+              <p class="card-text">
+                Comprehensive dental examinations, routine checkups, thorough ultrasonic oral prophylaxis (teeth cleaning), and reinforced aesthetic tooth restorations.
+              </p>
+            </div>
+          </article>
+
+          <!-- Card 2: Orthodontics -->
+          <article class="service-card">
+            <div class="card-media">
+              <img 
+                src="assets/service_orthodontics.jpg" 
+                alt="Orthodontics dental braces and teeth alignment" 
+                class="card-img" 
+                loading="lazy"
+              />
+              <div class="card-tag">Specialized Care</div>
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">ORTHODONTICS</h3>
+              <p class="card-text">
+                Metal and ceramic dental braces, clear retainers, bite correction, and personalized tooth alignment for teenagers and adults seeking a confident, straight smile.
+              </p>
+            </div>
+          </article>
+
+          <!-- Card 3: Oral Surgery -->
+          <article class="service-card">
+            <div class="card-media">
+              <img 
+                src="assets/service_oral_surgery.jpg" 
+                alt="Oral surgery and wisdom tooth extraction" 
+                class="card-img" 
+                loading="lazy"
+              />
+              <div class="card-tag">Specialized Care</div>
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">ORAL SURGERY</h3>
+              <p class="card-text">
+                Surgical extraction of painful impacted wisdom teeth, complex extractions, pre-prosthetic bone preservation, and gentle minor oral surgical treatments.
+              </p>
+            </div>
+          </article>
+
+          <!-- Card 4: Pedodontics -->
+          <article class="service-card">
+            <div class="card-media">
+              <img 
+                src="assets/service_cleaning.jpg" 
+                alt="Pedodontics pediatric dentistry for children" 
+                class="card-img" 
+                loading="lazy"
+              />
+              <div class="card-tag">Pediatric Care</div>
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">PEDODONTICS</h3>
+              <p class="card-text">
+                Compassionate, anxiety-free dentistry for kids and young children: preventive fluoride applications, pit and fissure sealants, and early dental health habits.
+              </p>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Link to Full Multi-page Services Catalog -->
+        <div style="text-align: center; margin-top: 48px;">
+          <a href="services.html" class="btn-black-pill" style="display: inline-flex; background: rgba(255, 255, 255, 0.12); border: 1px solid rgba(255, 255, 255, 0.25); color: #FFFFFF; padding: 14px 28px;">
+            <span>Explore All Dental Services &amp; Procedures</span>
+            <span class="btn-arrow">➔</span>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PHASE 6: VERIFIED PATIENT REVIEWS & TESTIMONIALS SECTION -->
+    <section class="reviews-section" id="reviews">
+      <div class="trust-score-header">
+        <div class="trust-badge-card">
+          <div class="stars-row">★★★★★</div>
+          <span class="trust-score-text">4.9 / 5.0 Rating</span>
+          <span style="color: var(--text-muted); font-size: 0.85rem;">(680+ Verified Patient Reviews)</span>
+        </div>
+        <div class="pill-badge">
+          <span class="badge-star">★</span>
+          <span>Google Reviews &amp; Doctify Verified</span>
+        </div>
+      </div>
+
+      <div class="reviews-cards-grid">
+        <!-- Review Card 1 -->
+        <article class="review-card-item">
+          <div class="review-card-top">
+            <div class="stars-row" style="font-size: 0.95rem;">★★★★★</div>
+            <span class="treatment-tag-pill">Titanium Implants</span>
+          </div>
+          <p class="review-quote-text">
+            "I had extensive bone loss and was terrified of implants. The 3D guided surgery at Dentiva BGC was so precise I experienced virtually zero downtime. My ceramic crowns look and feel completely indistinguishable from real teeth."
+          </p>
+          <div class="reviewer-profile-row">
+            <img src="assets/patient_david.jpg" alt="David Tan" class="reviewer-avatar" />
+            <div class="reviewer-details">
+              <span class="reviewer-name">David Tan</span>
+              <span class="reviewer-meta">BGC Flagship Clinic • Verified Patient</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Review Card 2 -->
+        <article class="review-card-item">
+          <div class="review-card-top">
+            <div class="stars-row" style="font-size: 0.95rem;">★★★★★</div>
+            <span class="treatment-tag-pill">Porcelain Veneers</span>
+          </div>
+          <p class="review-quote-text">
+            "The team closed my midline diastema with ultra-thin hand-layered porcelain veneers. No bulky feel, no artificial glow—just natural translucency that completely unlocked my confidence in professional meetings."
+          </p>
+          <div class="reviewer-profile-row">
+            <img src="assets/patient_sarah.jpg" alt="Sarah Roxas-Lim" class="reviewer-avatar" />
+            <div class="reviewer-details">
+              <span class="reviewer-name">Sarah Roxas-Lim</span>
+              <span class="reviewer-meta">Makati Aesthetic Suite • Verified Patient</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Review Card 3 -->
+        <article class="review-card-item">
+          <div class="review-card-top">
+            <div class="stars-row" style="font-size: 0.95rem;">★★★★★</div>
+            <span class="treatment-tag-pill">Painless Root Canal</span>
+          </div>
+          <p class="review-quote-text">
+            "I came in with severe toothache on a Saturday morning. Dentiva took me in immediately under microscopic rotary endodontics. I felt zero discomfort and left with a beautifully sealed tooth. Extraordinary care."
+          </p>
+          <div class="reviewer-profile-row">
+            <div class="reviewer-avatar" style="background: #141618; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.1rem;">
+              MV
+            </div>
+            <div class="reviewer-details">
+              <span class="reviewer-name">Atty. Marcus Villafuerte</span>
+              <span class="reviewer-meta">Emergency Care • Verified Patient</span>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div style="text-align: center; margin-top: 40px;">
+        <a href="reviews.html" class="btn-cta-sharp" style="display: inline-flex;">
+          <span>Read All 680+ Verified Stories</span>
+          <span class="btn-arrow">➔</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- PHASE 5: BUDGET-FRIENDLY DISCOUNT SECTION -->
+    <section class="discount-section" id="discount">
+      <div class="discount-grid">
+        
+        <!-- Left Column: Copy & Details -->
+        <div class="discount-copy-col">
+          <h2 class="discount-heading">
+            Your Family's Dental Health Matters: Discover Our Budget-Friendly Discount Plan.
+          </h2>
+          <p class="discount-subtext">
+            Unlock Optimal Dental Wellness for Your Loved Ones: Embrace Our Budget-Friendly Discount Plan for Comprehensive Care and Radiant Smiles!
+          </p>
+
+          <div class="discount-perks">
+            <div class="perk-item">
+              <span class="perk-check">✓</span>
+              <span>No waiting periods or deductibles</span>
+            </div>
+            <div class="perk-item">
+              <span class="perk-check">✓</span>
+              <span>Immediate family coverage eligibility</span>
+            </div>
+            <div class="perk-item">
+              <span class="perk-check">✓</span>
+              <span>Complimentary annual panorex imaging</span>
+            </div>
+          </div>
+
+          <button class="btn-enroll" id="enrollPlanBtn">
+            <span>Explore Coverage Plans</span>
+            <span class="btn-arrow">➔</span>
+          </button>
+        </div>
+
+        <!-- Right Column: Promo Card -->
+        <div class="discount-card-col">
+          <div class="pale-promo-card">
+            
+            <!-- Top Row: 80% and Smiley Face -->
+            <div class="promo-top-row">
+              <div class="promo-percentage">80%</div>
+              
+              <!-- Minimalist Stylized Smiley Icon -->
+              <div class="promo-smiley-wrapper" aria-label="Smiley icon">
+                <svg viewBox="0 0 100 100" class="smiley-svg">
+                  <!-- Two eye dots -->
+                  <circle cx="36" cy="38" r="4.5" fill="#111111" />
+                  <circle cx="68" cy="38" r="4.5" fill="#111111" />
+                  <!-- Big confident clean upward smile arc -->
+                  <path d="M 28 58 Q 52 86 76 58" fill="none" stroke="#111111" stroke-width="6" stroke-linecap="round" />
+                </svg>
+              </div>
+            </div>
+
+            <!-- Bottom Paragraph -->
+            <div class="promo-bottom">
+              <p class="promo-desc">
+                Exclusive Member Savings: Save 30% - 80% on Dental Procedures, Including Oral Exams, Cleanings, and X-Rays.
+              </p>
+              <div class="promo-pill-sub">
+                <span>Dentiva CarePass</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PHASE 7: FREQUENTLY ASKED QUESTIONS SECTION —— Lively Dental Design -->
+    <!-- ========================================================================= -->
+    <!-- FAQ SECTION (CLEAN & ELEGANT ACCORDION)                                   -->
+    <!-- ========================================================================= -->
+    <section class="faq-section" id="faq" style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: var(--radius-hero); padding: 64px 40px; margin: 32px 0;">
+      
+      <div style="text-align: center; max-width: 620px; margin: 0 auto 44px;">
+        <div class="pill-badge" style="margin-bottom: 14px; display: inline-flex;">
+          <span class="badge-star">✦</span>
+          <span>Frequently Asked Questions</span>
+        </div>
+        <h2 style="font-family: var(--font-heading); font-size: clamp(1.8rem, 2.8vw, 2.4rem); font-weight: 800; color: var(--text-dark); letter-spacing: -0.02em; margin-bottom: 10px; line-height: 1.2;">
+          Got Questions About Your Care?
+        </h2>
+        <p style="color: var(--text-body); font-size: 0.98rem; line-height: 1.65;">
+          Clear, direct answers about our treatments, clinical protocols, and appointment scheduling.
+        </p>
+      </div>
+
+      <!-- FAQ Accordion Grid -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 14px; max-width: 1040px; margin: 0 auto;">
+
+        <!-- FAQ Item 1 -->
+        <div class="faq-item-card" style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 14px;">
+          <button class="faq-question-trigger" aria-expanded="false" style="padding: 20px 24px;">
+            <span>Are dental treatments painful?</span>
+            <span class="faq-icon-rotator">+</span>
+          </button>
+          <div class="faq-answer-drawer" style="padding: 0 24px 20px; color: var(--text-body); line-height: 1.65; font-size: 0.93rem;">
+            <p>We prioritize your comfort at every step. Using modern local anesthesia and gentle clinical techniques, most patients feel only mild vibration or pressure with zero sharp pain.</p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 2 -->
+        <div class="faq-item-card" style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 14px;">
+          <button class="faq-question-trigger" aria-expanded="false" style="padding: 20px 24px;">
+            <span>How long do whitening results typically last?</span>
+            <span class="faq-icon-rotator">+</span>
+          </button>
+          <div class="faq-answer-drawer" style="padding: 0 24px 20px; color: var(--text-body); line-height: 1.65; font-size: 0.93rem;">
+            <p>Professional laser whitening results typically last 2 to 3 years depending on personal habits. We provide custom maintenance trays and desensitizing care to help preserve your bright smile.</p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 3 -->
+        <div class="faq-item-card" style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 14px;">
+          <button class="faq-question-trigger" aria-expanded="false" style="padding: 20px 24px;">
+            <span>How long does a dental implant procedure take?</span>
+            <span class="faq-icon-rotator">+</span>
+          </button>
+          <div class="faq-answer-drawer" style="padding: 0 24px 20px; color: var(--text-body); line-height: 1.65; font-size: 0.93rem;">
+            <p>Titanium implant placement takes about 30 to 45 minutes in-chair under local anesthesia. Following 8 to 12 weeks of natural healing, your custom permanent crown is permanently attached.</p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 4 -->
+        <div class="faq-item-card" style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 14px;">
+          <button class="faq-question-trigger" aria-expanded="false" style="padding: 20px 24px;">
+            <span>Do you offer installment payment options?</span>
+            <span class="faq-icon-rotator">+</span>
+          </button>
+          <div class="faq-answer-drawer" style="padding: 0 24px 20px; color: var(--text-body); line-height: 1.65; font-size: 0.93rem;">
+            <p>Yes. Flexible installment payment arrangements are available for major procedures including orthodontics, dental implants, and cosmetic restorations to keep quality dental care accessible.</p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 5 -->
+        <div class="faq-item-card" style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 14px;">
+          <button class="faq-question-trigger" aria-expanded="false" style="padding: 20px 24px;">
+            <span>When should a child first visit the dentist?</span>
+            <span class="faq-icon-rotator">+</span>
+          </button>
+          <div class="faq-answer-drawer" style="padding: 0 24px 20px; color: var(--text-body); line-height: 1.65; font-size: 0.93rem;">
+            <p>We recommend a first visit when their first baby tooth emerges or by their first birthday. Early visits build positive habits and help prevent anxiety in a welcoming, family-friendly environment.</p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 6 -->
+        <div class="faq-item-card" style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 14px;">
+          <button class="faq-question-trigger" aria-expanded="false" style="padding: 20px 24px;">
+            <span>What happens during an orthodontic consultation?</span>
+            <span class="faq-icon-rotator">+</span>
+          </button>
+          <div class="faq-answer-drawer" style="padding: 0 24px 20px; color: var(--text-body); line-height: 1.65; font-size: 0.93rem;">
+            <p>Your consultation includes digital photos, bite assessment, and an individualized roadmap. We walk you through options — including braces and clear aligners — with clear timelines and pricing.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div style="text-align: center; margin-top: 36px;">
+        <a href="faq.html" class="btn-cta-sharp" style="display: inline-flex; align-items: center; gap: 8px; padding: 12px 28px; font-size: 0.92rem;">
+          <span>View All Frequently Asked Questions</span>
+          <span class="btn-arrow">➔</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- CTA SECTION: YOUR SMILE JOURNEY STARTS HERE (CLEAN & SIMPLE)              -->
+    <!-- ========================================================================= -->
+    <section style="background: #0F172A; border-radius: var(--radius-hero); margin: 32px 0; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.08);">
+      <div style="display: grid; grid-template-columns: 1.15fr 0.85fr; align-items: center; min-height: 380px;">
+
+        <!-- Left: Text Content -->
+        <div style="padding: 56px 48px;">
+          <div class="pill-badge" style="margin-bottom: 18px; display: inline-flex; background: rgba(23,135,130,0.15); border-color: rgba(23,135,130,0.35); color: #2DD4BF;">
+            <span class="badge-star" style="color: #14B8A6;">✦</span>
+            <span>Personalized Care</span>
+          </div>
+
+          <h2 style="font-family: var(--font-heading); font-size: clamp(1.8rem, 2.8vw, 2.5rem); font-weight: 800; color: #FFFFFF; letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 16px;">
+            Your Smile Journey<br/>
+            <span style="color: #2DD4BF;">Starts Here</span>
+          </h2>
+
+          <p style="font-family: var(--font-body); font-size: 0.98rem; color: #94A3B8; line-height: 1.7; margin-bottom: 30px; max-width: 440px;">
+            Experience gentle, comprehensive dentistry in San Fernando City, La Union. Schedule your clinical consultation today and take the first step toward a healthier, confident smile.
+          </p>
+
+          <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+            <a href="booking.html" class="btn-cta-sharp" style="padding: 13px 28px; font-size: 0.93rem;">
+              <span>Book Appointment</span>
+              <span class="btn-arrow">➔</span>
+            </a>
+            <a href="services.html" style="display: inline-flex; align-items: center; gap: 6px; padding: 13px 24px; border: 1px solid rgba(255,255,255,0.2); border-radius: var(--radius-pill); font-family: var(--font-heading); font-size: 0.92rem; font-weight: 600; color: #E2E8F0; text-decoration: none; transition: all 0.2s;" onmouseenter="this.style.borderColor='#2DD4BF'; this.style.color='#FFFFFF'" onmouseleave="this.style.borderColor='rgba(255,255,255,0.2)'; this.style.color='#E2E8F0'">
+              <span>Our Services</span>
+              <span>↗</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: Modern Dental Chair Visual -->
+        <div style="position: relative; height: 100%; min-height: 380px;">
+          <img src="assets/dental_clinic_chair.jpg" alt="Modern Dental Treatment Room" style="width: 100%; height: 100%; object-fit: cover; display: block; opacity: 0.88;" />
+          <div style="position: absolute; inset: 0; background: linear-gradient(to right, #0F172A 0%, rgba(15, 23, 42, 0.4) 40%, transparent 100%);"></div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer" id="contact">
+      <div class="footer-container">
+        
+        <div class="footer-top-row">
+          <div class="footer-brand">
+            <div class="brand-logo">
+              <img src="assets/dentist_logo.jpg" alt="Dentiva Dental Clinic" style="height: 42px; width: 42px; object-fit: cover; border-radius: 50%; filter: brightness(0) invert(1);" />
+            </div>
+            <p class="footer-tagline">
+              We offer General Dentistry and specialized dental services in Orthodontics, Oral Surgery, and Pedodontics in San Fernando City, La Union.
+            </p>
+            <div style="margin-top: 14px; font-size: 0.85rem; color: #94A3B8; line-height: 1.6;">
+              📍 2nd Floor, Unit 2, Ganaden Building, Ganaden Street, McArthur Highway, Lingsat, San Fernando City, La Union<br />
+              📞 Call / Text: <strong style="color: #FFFFFF;">+63 960 337 9837</strong> (Smart / WhatsApp / Viber)<br />
+              ✉️ Email: <strong style="color: #FFFFFF;">toothdcarelu@gmail.com</strong>
+            </div>
+          </div>
+
+          <div class="footer-nav-col">
+            <span class="footer-col-title">Services</span>
+            <a href="services.html">General Dentistry</a>
+            <a href="services.html#ortho">ORTHODONTICS</a>
+            <a href="services.html#surgery">ORAL SURGERY</a>
+            <a href="services.html#pedodontics">PEDODONTICS</a>
+          </div>
+
+          <div class="footer-nav-col">
+            <span class="footer-col-title">Patient Portal</span>
+            <a href="booking.html" style="color: #178782; font-weight: 700;">Book Appointment Online ➔</a>
+            <a href="reviews.html">Verified Patient Stories</a>
+            <a href="before-after.html">Smile Transformations</a>
+            <a href="faq.html">FAQs &amp; Hours</a>
+            <a href="contact.html">Our La Union Clinic</a>
+          </div>
+
+          <div class="footer-nav-col">
+            <span class="footer-col-title">Clinic Hours</span>
+            <p class="hours-text">Mon - Sat: 09:00 - 19:00</p>
+            <p class="hours-text">Sunday: By Appointment</p>
+            <p class="hours-text" style="color: #10B981; font-weight: 600; margin-top: 6px;">Service Area: San Fernando City, La Union</p>
+          </div>
+        </div>
+
+        <div class="footer-bottom-bar">
+          <p>© 2026 Dentiva Dental Clinic • All Rights Reserved.</p>
+          <div class="footer-legals">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Patient Rights</a>
+          </div>
+        </div>
+
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- INTERACTIVE APPOINTMENT MODAL -->
+  <div class="modal-overlay" id="appointmentModal" aria-hidden="true">
+    <div class="modal-container" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close modal">✕</button>
+      
+      <div class="modal-header">
+        <div class="pill-badge" style="margin-bottom: 8px;">
+          <span class="badge-star">★</span>
+          <span>Dentiva Appointment</span>
+        </div>
+        <h3 id="modalTitle" class="modal-heading">Book Your Consultation</h3>
+        <p class="modal-sub">Select your desired service and preferred appointment slot.</p>
+      </div>
+
+      <form class="appointment-form" id="bookingForm" onsubmit="event.preventDefault(); window.handleBookingSubmit();">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="patientName">Full Name</label>
+            <input type="text" id="patientName" placeholder="e.g. Sarah Jenkins" required />
+          </div>
+          <div class="form-group">
+            <label for="patientPhone">Phone Number</label>
+            <input type="tel" id="patientPhone" placeholder="0917 123 4567" required />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="treatmentSelect">Treatment Type</label>
+          <select id="treatmentSelect" required>
+            <option value="implant">Dental Titanium Implant &amp; Crown</option>
+            <option value="checkup">Vibrant Comprehensive Checkup</option>
+            <option value="cleaning">Revitalized Prophylaxis Cleaning</option>
+            <option value="filling">Reinforced Aesthetic Fillings</option>
+            <option value="other">Other Consultation</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="prefDate">Preferred Date</label>
+            <input type="date" id="prefDate" required />
+          </div>
+          <div class="form-group">
+            <label for="prefTime">Preferred Time</label>
+            <select id="prefTime" required>
+              <option value="morning">Morning (09:00 - 12:00)</option>
+              <option value="afternoon">Afternoon (12:00 - 15:00)</option>
+              <option value="evening">Late Afternoon (15:00 - 18:00)</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-black-pill submit-btn">
+          <span>Confirm Booking Request</span>
+          <span class="btn-arrow">➔</span>
+        </button>
+        <p class="form-disclaimer">No deposit required. Our clinic concierge will confirm within 2 hours.</p>
+      </form>
+
+      <!-- Confirmation view (hidden by default) -->
+      <div class="booking-success" id="bookingSuccess" style="display: none;">
+        <div class="success-icon">✓</div>
+        <h4>Appointment Requested!</h4>
+        <p>Thank you. Our BGC &amp; Makati clinic coordinator will contact you shortly to finalize your appointment details.</p>
+        <button class="btn-black-pill" onclick="window.closeAppointmentModal()" style="margin-top: 16px;">Done</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FLOATING CONCIERGE DUAL-MODE MESSENGER WIDGET -->
+  <aside class="floating-messenger-widget" id="messengerWidget" aria-label="Dentiva Messenger Concierge">
+    <!-- Chat Popup Window -->
+    <div class="messenger-chat-modal" id="messengerChatModal" role="dialog" aria-modal="false" aria-label="Dentiva Messenger Concierge">
+      <!-- Header -->
+      <div class="messenger-modal-header">
+        <div class="messenger-avatar-info">
+          <div class="messenger-avatar-circle">D</div>
+          <div class="messenger-text-meta">
+            <span class="messenger-title">Dentiva Concierge</span>
+            <span class="messenger-status-sub">
+              <span class="status-green-dot"></span>
+              Online • Replies Instantly
+            </span>
+          </div>
+        </div>
+        <button class="messenger-close-btn" id="messengerCloseBtn" aria-label="Close Messenger Chat">✕</button>
+      </div>
+
+      <!-- Segmented Dual-Mode Switcher -->
+      <div class="messenger-channel-tabs" role="tablist">
+        <button class="messenger-channel-tab active" id="tabBubbleChat" type="button" role="tab" aria-selected="true">
+          <span>💬</span> Chat in Bubble
+        </button>
+        <button class="messenger-channel-tab" id="tabDirectMessenger" type="button" role="tab" aria-selected="false">
+          <span>⚡</span> Open Messenger
+        </button>
+      </div>
+
+      <!-- Option 1: In-Bubble Chat View -->
+      <div class="messenger-bubble-chat-view" id="bubbleChatView">
+        <div class="chat-modal-body" id="chatMessagesContainer">
+          <div class="chat-bubble-bot">
+            Mabuhay! 👋 Welcome to Dentiva Philippines. How can Dr. Patricia Santos and our concierge team assist your smile today?
+          </div>
+          <div class="chat-quick-options" id="chatQuickOptions">
+            <button class="chat-option-btn" type="button" data-action="book">
+              <span>📅 Book Consultation</span>
+              <span>➔</span>
+            </button>
+            <button class="chat-option-btn" type="button" data-action="whitening">
+              <span>✨ Laser Whitening Pricing</span>
+              <span>➔</span>
+            </button>
+            <button class="chat-option-btn" type="button" data-action="implant">
+              <span>🦷 3D Dental Implant Info</span>
+              <span>➔</span>
+            </button>
+            <button class="chat-option-btn" type="button" data-action="messenger-direct">
+              <span>⚡ Switch to Messenger App</span>
+              <span>➔</span>
+            </button>
+          </div>
+        </div>
+
+        <form class="chat-modal-footer" id="messengerChatForm" onsubmit="event.preventDefault(); window.sendConciergeMessage();">
+          <input 
+            type="text" 
+            id="chatInputField" 
+            class="chat-input-field" 
+            placeholder="Ask Dr. Santos' team..." 
+            autocomplete="off"
+          />
+          <button type="submit" class="chat-send-btn" id="chatSendBtn" aria-label="Send Message">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="22" y1="2" x2="11" y2="13"></line>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+            </svg>
+          </button>
+        </form>
+      </div>
+
+      <!-- Option 2: Direct Messenger Redirect Card -->
+      <div class="messenger-direct-card" id="directMessengerCard">
+        <div class="messenger-direct-icon">
+          <svg viewBox="0 0 28 28" width="30" height="30" fill="currentColor">
+            <path d="M14 2C7.373 2 2 6.953 2 13.06c0 3.48 1.745 6.577 4.475 8.527V26l4.248-2.332c1.047.29 2.152.452 3.277.452 6.627 0 12-4.953 12-11.06C26 6.953 20.627 2 14 2zm1.385 14.89l-3.076-3.28-6.002 3.28 6.603-7.01 3.153 3.28 5.925-3.28-6.603 7.01z"/>
+          </svg>
+        </div>
+        <div class="messenger-direct-heading">Chat on Meta Messenger</div>
+        <p class="messenger-direct-desc">
+          Prefer chatting directly in the Facebook Messenger app? Connect with our clinic concierge team at @dentivaphilippines.
+        </p>
+        <a href="https://m.me/dentivaphilippines" target="_blank" rel="noopener noreferrer" class="btn-open-messenger">
+          <span>Open in Messenger App</span>
+          <span>↗</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Floating Circular Launcher Button -->
+    <button class="messenger-launcher-btn" id="messengerLauncherBtn" aria-label="Open Dentiva Messenger Concierge" title="Chat with Dentiva on Messenger">
+      <span class="messenger-pulse-ring" aria-hidden="true"></span>
+      <span class="messenger-online-badge" aria-hidden="true"></span>
+      <svg viewBox="0 0 28 28" class="messenger-icon-svg" aria-hidden="true">
+        <path d="M14 2C7.373 2 2 6.953 2 13.06c0 3.48 1.745 6.577 4.475 8.527V26l4.248-2.332c1.047.29 2.152.452 3.277.452 6.627 0 12-4.953 12-11.06C26 6.953 20.627 2 14 2zm1.385 14.89l-3.076-3.28-6.002 3.28 6.603-7.01 3.153 3.28 5.925-3.28-6.603 7.01z"/>
+      </svg>
+    </button>
+  </aside>
+
+  <!-- Script -->
+  <script src="script.js"></script>
+</body>
+</html>

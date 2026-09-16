@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book Appointment — Dentiva Dental Clinic</title>
+  <meta name="description" content="Schedule your dental appointment at Dentiva Dental Clinic in San Fernando City, La Union. We offer General Dentistry, Orthodontics, Oral Surgery, and Pedodontics." />
+
+  <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,300&display=swap" rel="stylesheet" />
+
+  <!-- Main Stylesheet -->
+    <link rel="icon" type="image/jpeg" href="assets/dentist_logo.jpg" />
+  <link rel="stylesheet" href="style.css" />
+  <!-- Lenis Smooth Momentum Scroll -->
+  <script src="assets/lenis.min.js"></script>
+
+  <style>
+    /* Dedicated Standalone Booking Portal Styling */
+    body {
+      background: #F0F4F8;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .standalone-booking-page {
+      width: 100%;
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 32px 20px 60px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Minimalist Branded Header (No full nav/menu/dentiva logo) */
+    .booking-top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 28px;
+      padding: 12px 18px;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      box-shadow: 0 4px 16px rgba(18, 24, 38, 0.04);
+    }
+
+    .btn-return-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 18px;
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-radius: var(--radius-pill);
+      color: var(--text-dark);
+      font-size: 0.86rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all var(--transition-fast);
+    }
+
+    .btn-return-link:hover {
+      background: #FFFFFF;
+      border-color: #CBD5E1;
+      transform: translateX(-2px);
+    }
+
+    .booking-brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .booking-brand-logo img {
+      height: 44px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .booking-top-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn-sheets-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 14px;
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      border-radius: var(--radius-pill);
+      color: #0F766E;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all var(--transition-fast);
+    }
+
+    .btn-sheets-badge:hover {
+      background: #F0FDFA;
+      border-color: #99F6E4;
+      transform: translateY(-1px);
+    }
+
+    /* Main 2-Column Booking Layout */
+    .booking-main-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 32px;
+      align-items: start;
+    }
+
+    /* Left: Form Card (Identical structure to Our Clinics section) */
+    .clinic-form-card {
+      background: #FFFFFF;
+      border-radius: var(--radius-card);
+      padding: 44px 40px;
+      box-shadow: 0 12px 36px rgba(18, 24, 38, 0.05);
+      border: 1px solid rgba(20, 22, 24, 0.05);
+    }
+
+    .clinic-form-header {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .clinic-form-title {
+      font-family: var(--font-heading);
+      font-size: 2.15rem;
+      font-weight: 300;
+      color: var(--text-dark);
+      letter-spacing: -0.04em;
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+
+    .clinic-form-sub {
+      color: var(--text-body);
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
+
+    /* Right: Operatory Visual & Direct Contact Card */
+    .clinic-sidebar-col {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .chair-visual-card {
+      position: relative;
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      box-shadow: 0 12px 32px rgba(18, 24, 38, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      background: #000000;
+      aspect-ratio: 4/3;
+    }
+
+    .chair-visual-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .chair-visual-card:hover img {
+      transform: scale(1.03);
+    }
+
+    .chair-floating-badge {
+      position: absolute;
+      bottom: 16px;
+      left: 16px;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      color: #FFFFFF;
+      padding: 8px 16px;
+      border-radius: var(--radius-pill);
+      font-size: 0.8rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .contact-info-card {
+      background: #FFFFFF;
+      border-radius: var(--radius-card);
+      padding: 32px;
+      box-shadow: 0 10px 30px rgba(18, 24, 38, 0.04);
+      border: 1px solid rgba(20, 22, 24, 0.05);
+    }
+
+    .contact-card-title {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .contact-card-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      font-size: 0.9rem;
+      color: var(--text-dark);
+    }
+
+    .contact-card-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      line-height: 1.5;
+    }
+
+    .contact-icon {
+      font-size: 1.1rem;
+      color: #0D9488;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .quick-channels-row {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+      padding-top: 16px;
+      border-top: 1px solid #F1F5F9;
+    }
+
+    .btn-channel-pill {
+      flex: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 10px 14px;
+      border-radius: var(--radius-pill);
+      font-size: 0.84rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all var(--transition-fast);
+    }
+
+    .btn-viber {
+      background: #7360F2;
+      color: #FFFFFF;
+    }
+
+    .btn-viber:hover {
+      background: #5E4CD9;
+      transform: translateY(-1px);
+    }
+
+    .btn-whatsapp {
+      background: #25D366;
+      color: #FFFFFF;
+    }
+
+    .btn-whatsapp:hover {
+      background: #1EBE5D;
+      transform: translateY(-1px);
+    }
+
+    .booking-portal-footer {
+      text-align: center;
+      margin-top: 40px;
+      padding: 20px 0;
+      color: var(--text-muted);
+      font-size: 0.84rem;
+      border-top: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    @media (max-width: 900px) {
+      .booking-main-grid {
+        grid-template-columns: 1fr;
+      }
+      .clinic-form-card {
+        padding: 32px 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="standalone-booking-page">
+
+    <!-- MINIMALIST TOP BAR (No menu dropdown, no contact link, no dentiva logo) -->
+    <header class="booking-top-bar">
+      <a href="index.html" class="btn-return-link" title="Return to Dentiva Home">
+        <span>←</span>
+        <span>Back to Website</span>
+      </a>
+
+      <a href="index.html" class="booking-brand-logo" aria-label="Dentiva Dental Clinic Home">
+        <img src="assets/dentist_logo.jpg" style="height: 42px; width: 42px; object-fit: cover; border-radius: 50%;" />
+      </a>
+
+      <div class="booking-top-actions">
+        <button class="btn-sheets-badge" onclick="window.openWebhookConfigModal()" title="Google Sheets Automation Settings">
+          <span>⚙️ Sheets API</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- 2-COLUMN BOOKING MAIN SECTION -->
+    <main class="booking-main-grid">
+
+      <!-- LEFT: APPOINTMENT FORM (Styled similarly to Our Clinics Direct Reservation) -->
+      <section class="clinic-form-card">
+        <div class="clinic-form-header">
+          <div class="pill-badge" style="margin-bottom: 12px; display: inline-flex;">
+            <span class="badge-star">★</span>
+            <span>Direct Reservation</span>
+          </div>
+          <h1 class="clinic-form-title">Book Your Appointment</h1>
+          <p class="clinic-form-sub">
+            San Fernando City, La Union • Fill out your details below and our clinic coordinator will confirm your schedule within 2 hours.
+          </p>
+        </div>
+
+        <form class="appointment-form" id="bookingForm" onsubmit="event.preventDefault(); window.handleBookingSubmit();">
+          <!-- Row 1: Name & Phone -->
+          <div class="form-row">
+            <div class="form-group">
+              <label for="cName">Full Name *</label>
+              <input type="text" id="cName" name="name" placeholder="e.g. Juan dela Cruz" required />
+            </div>
+            <div class="form-group">
+              <label for="cPhone">Contact Number (Smart / WhatsApp / Viber) *</label>
+              <input type="tel" id="cPhone" name="phone" placeholder="0960 337 9837" required />
+            </div>
+          </div>
+
+          <!-- Row 2: Email & Clinic Location -->
+          <div class="form-row">
+            <div class="form-group">
+              <label for="cEmail">Email Address</label>
+              <input type="email" id="cEmail" name="email" placeholder="patient@example.com" />
+            </div>
+            <div class="form-group">
+              <label for="cClinic">Clinic Location</label>
+              <select id="cClinic" name="location">
+                <option value="San Fernando City, La Union" selected>Ganaden Bldg, Lingsat, San Fernando City, La Union</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Services Dropdown (General Dentistry, Orthodontics, Oral Surgery, Pedodontics) -->
+          <div class="form-group">
+            <label for="cTreatment">Service / Treatment Needed *</label>
+            <select id="cTreatment" name="treatment" required>
+              <option value="" disabled selected>Select Dental Service</option>
+              <optgroup label="General Dentistry">
+                <option value="General Dentistry - Comprehensive Examination">General Dentistry — Comprehensive Exam &amp; Consultation</option>
+                <option value="General Dentistry - Oral Prophylaxis (Cleaning)">General Dentistry — Oral Prophylaxis (Teeth Cleaning)</option>
+                <option value="General Dentistry - Aesthetic Tooth Restoration">General Dentistry — Aesthetic Tooth Fillings / Restoration</option>
+                <option value="General Dentistry - Tooth Extraction">General Dentistry — Simple Tooth Extraction</option>
+              </optgroup>
+              <optgroup label="Specialized Dental Services">
+                <option value="ORTHODONTICS - Dental Braces & Alignment">ORTHODONTICS — Dental Braces &amp; Teeth Straightening</option>
+                <option value="ORTHODONTICS - Retainers & Aligners">ORTHODONTICS — Clear Retainers &amp; Orthodontic Adjustment</option>
+                <option value="ORAL SURGERY - Impacted Wisdom Tooth">ORAL SURGERY — Impacted Wisdom Tooth Extraction</option>
+                <option value="ORAL SURGERY - Minor Oral Surgery">ORAL SURGERY — Minor Oral Surgical Procedures</option>
+                <option value="PEDODONTICS - Children Pediatric Care">PEDODONTICS — Pediatric Dental Care &amp; Checkup</option>
+                <option value="PEDODONTICS - Fluoride & Dental Sealants">PEDODONTICS — Fluoride Treatment &amp; Pit/Fissure Sealants</option>
+              </optgroup>
+              <option value="Other Dental Consultation">Other Dental Consultation / Urgent Concern</option>
+            </select>
+          </div>
+
+          <!-- Row 3: Date & Time Slot -->
+          <div class="form-row">
+            <div class="form-group">
+              <label for="cDate">Preferred Date *</label>
+              <input type="date" id="cDate" name="date" required />
+            </div>
+            <div class="form-group">
+              <label for="cTime">Preferred Time Slot *</label>
+              <select id="cTime" name="time" required>
+                <option value="" disabled selected>Select Preferred Time</option>
+                <option value="09:00 AM">09:00 AM (Morning)</option>
+                <option value="10:30 AM">10:30 AM (Morning)</option>
+                <option value="12:00 PM">12:00 PM (Noon)</option>
+                <option value="01:30 PM">01:30 PM (Afternoon)</option>
+                <option value="03:00 PM">03:00 PM (Afternoon)</option>
+                <option value="04:30 PM">04:30 PM (Late Afternoon)</option>
+                <option value="06:00 PM">06:00 PM (Evening)</option>
+                <option value="Sunday By Appointment">Sunday (By Appointment Only)</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Notes -->
+          <div class="form-group">
+            <label for="cNotes">Notes / Health Concerns / Special Requests</label>
+            <textarea id="cNotes" name="notes" rows="3" placeholder="Tell us about any specific tooth discomfort, past medical conditions, or children's age (for pedodontics)..." style="width: 100%; padding: 12px 16px; border-radius: 16px; border: 1px solid var(--border-faint); font-family: inherit; font-size: 0.92rem; background: #F8FAFC; outline: none;"></textarea>
+          </div>
+
+          <button type="submit" class="btn-black-pill submit-btn" id="submitBtn">
+            <span>Confirm Appointment Request</span>
+            <span class="btn-arrow">➔</span>
+          </button>
+          <p class="form-disclaimer">
+            Zero booking fees. Dentiva Dental Clinic coordinates via Call, SMS, WhatsApp, or Viber.
+          </p>
+        </form>
+
+        <!-- Success Confirmation Container -->
+        <div class="booking-success" id="bookingSuccess" style="display: none;">
+          <div class="success-icon">✓</div>
+          <h4>Appointment Request Received!</h4>
+          <p style="margin-bottom: 16px;">
+            Thank you. Your consultation has been logged with reference <strong id="resRef" style="color: #0D9488;">TDC-2026-XXXX</strong>. Our La Union clinic reception will contact you shortly to finalize your appointment.
+          </p>
+
+          <div style="background: #F0FDFA; border: 1px solid #CCFBF1; border-radius: 16px; padding: 20px; text-align: left; font-size: 0.9rem; margin-bottom: 20px;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+              <span style="color: #64748B;">Patient:</span>
+              <strong id="resName" style="color: #0F172A;">—</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+              <span style="color: #64748B;">Service:</span>
+              <strong id="resService" style="color: #0F172A;">—</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+              <span style="color: #64748B;">Date &amp; Time:</span>
+              <strong id="resDateTime" style="color: #0F172A;">—</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+              <span style="color: #64748B;">Clinic:</span>
+              <strong style="color: #0F172A;">Ganaden Bldg, Lingsat, San Fernando City</strong>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+            <a href="https://wa.me/639603379837?text=Hello%20Tooth%20D'%20Care%20Clinic,%20I%20just%20booked%20an%20appointment." target="_blank" class="btn-channel-pill btn-whatsapp" style="text-decoration: none;">
+              <span>💬 WhatsApp Update</span>
+            </a>
+            <a href="index.html" class="btn-black-pill" style="padding: 10px 24px; text-decoration: none;">
+              <span>Done / Home</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- RIGHT: OPERATORY CHAIR VISUAL & DIRECT CONTACT DETAILS -->
+      <aside class="clinic-sidebar-col">
+
+        <!-- Modern Patient Examination Chair -->
+        <div class="chair-visual-card">
+          <img src="assets/dental_clinic_chair.jpg" alt="Modern ergonomic dental patient chair at Dentiva Dental Clinic" />
+          <div class="chair-floating-badge">
+            <span style="color: #229891;">ⓘ</span>
+            <span>Dentiva Operatory Suite</span>
+          </div>
+        </div>
+
+        <!-- Official Clinic Contact Info Card -->
+        <div class="contact-info-card">
+          <h2 class="contact-card-title">
+            <span>Dentiva Dental Clinic</span>
+          </h2>
+
+          <div class="contact-card-list">
+            <div class="contact-card-item">
+              <span class="contact-icon">📍</span>
+              <div>
+                <strong>Location:</strong><br />
+                2nd Floor, Unit 2, Ganaden Building<br />
+                Ganaden Street, McArthur Highway, Lingsat<br />
+                San Fernando City, La Union
+              </div>
+            </div>
+
+            <div class="contact-card-item">
+              <span class="contact-icon">📞</span>
+              <div>
+                <strong>Call / Text:</strong><br />
+                <a href="tel:+639603379837" style="color: var(--text-dark); font-weight: 700; text-decoration: underline;">+63 960 337 9837</a><br />
+                <span style="font-size: 0.8rem; color: #0D9488; font-weight: 600;">Smart • WhatsApp • Viber Ready</span>
+              </div>
+            </div>
+
+            <div class="contact-card-item">
+              <span class="contact-icon">✉️</span>
+              <div>
+                <strong>Email:</strong><br />
+                <a href="mailto:toothdcarelu@gmail.com" style="color: var(--text-dark); font-weight: 600; text-decoration: underline;">toothdcarelu@gmail.com</a>
+              </div>
+            </div>
+
+            <div class="contact-card-item">
+              <span class="contact-icon">🕒</span>
+              <div>
+                <strong>Clinic Hours:</strong><br />
+                Monday to Saturday: <strong>9am - 7pm</strong><br />
+                Sunday: <strong>By Appointment</strong>
+              </div>
+            </div>
+
+            <div class="contact-card-item">
+              <span class="contact-icon">🌐</span>
+              <div>
+                <strong>Service Area:</strong><br />
+                San Fernando City, La Union &amp; Surrounding Municipalities
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Chat Concierge Buttons -->
+          <div class="quick-channels-row">
+            <a href="viber://chat?number=%2B639603379837" class="btn-channel-pill btn-viber">
+              <span>📱 Viber Us</span>
+            </a>
+            <a href="https://wa.me/639603379837?text=Hello%20Tooth%20D'%20Care,%20I%20would%20like%20to%20inquire%20about%20dental%20services." target="_blank" class="btn-channel-pill btn-whatsapp">
+              <span>💬 WhatsApp</span>
+            </a>
+          </div>
+        </div>
+
+      </aside>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="booking-portal-footer">
+      <p>© 2026 Dentiva Dental Clinic • <a href="https://toothdcare.com" target="_blank" style="text-decoration: underline; color: inherit;">toothdcare.com</a> • All Rights Reserved.</p>
+    </footer>
+
+  </div>
+
+  <!-- WEBHOOK MODAL -->
+  <div class="modal-overlay" id="webhookModal" aria-hidden="true" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 999; align-items: center; justify-content: center; padding: 16px;">
+    <div style="background: #FFFFFF; border-radius: 24px; padding: 36px; max-width: 520px; width: 100%; box-shadow: 0 24px 60px rgba(0,0,0,0.25);">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+        <h3 style="font-family: var(--font-heading); font-size: 1.35rem; font-weight: 700; margin: 0;">Google Sheets Backend</h3>
+        <button onclick="window.closeWebhookModal()" style="background: none; border: none; font-size: 1.3rem; cursor: pointer;">✕</button>
+      </div>
+      <p style="font-size: 0.88rem; color: var(--text-body); line-height: 1.5; margin-bottom: 20px;">
+        Paste your deployed Google Apps Script Web App URL below to connect bookings directly to your Google Sheet database:
+      </p>
+      <div style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px;">
+        <label for="webhookUrlInput" style="font-size: 0.82rem; font-weight: 600; color: var(--text-dark);">Apps Script URL (/exec):</label>
+        <input type="url" id="webhookUrlInput" placeholder="https://script.google.com/macros/s/.../exec" style="padding: 12px 16px; border-radius: 12px; border: 1px solid #CBD5E1; font-family: inherit; font-size: 0.88rem; outline: none; width: 100%;" />
+      </div>
+      <div style="display: flex; gap: 10px; justify-content: flex-end;">
+        <button onclick="window.testWebhookPing()" class="btn-signin" style="background: #E2E8F0; color: #1E293B;">Test Connection</button>
+        <button onclick="window.saveWebhookUrl()" class="btn-signin">Save Webhook</button>
+      </div>
+      <div id="webhookStatusMsg" style="margin-top: 14px; font-size: 0.85rem; text-align: center; font-weight: 600;"></div>
+    </div>
+  </div>
+
+  <!-- BOOKING SCRIPTS -->
+  <script>
+    // LocalStorage Keys
+    const WEBHOOK_STORAGE_KEY = 'tooth_d_care_webhook_url';
+
+    // Set minimum date to today
+    document.addEventListener('DOMContentLoaded', () => {
+      const dateInput = document.getElementById('cDate');
+      if (dateInput) {
+        const today = new Date().toISOString().split('T')[0];
+        dateInput.min = today;
+        dateInput.value = today;
+      }
+
+      // Check URL search parameters for pre-selected treatment
+      const urlParams = new URLSearchParams(window.location.search);
+      const treatmentParam = urlParams.get('treatment') || urlParams.get('service');
+      if (treatmentParam) {
+        const select = document.getElementById('cTreatment');
+        if (select) {
+          for (let i = 0; i < select.options.length; i++) {
+            if (select.options[i].value.toLowerCase().includes(treatmentParam.toLowerCase())) {
+              select.selectedIndex = i;
+              break;
+            }
+          }
+        }
+      }
+    });
+
+    // Form Submission Handler
+    window.handleBookingSubmit = async function() {
+      const name = document.getElementById('cName').value.trim();
+      const phone = document.getElementById('cPhone').value.trim();
+      const email = document.getElementById('cEmail').value.trim();
+      const treatment = document.getElementById('cTreatment').value;
+      const date = document.getElementById('cDate').value;
+      const time = document.getElementById('cTime').value;
+      const notes = document.getElementById('cNotes').value.trim();
+      const location = document.getElementById('cClinic').value;
+
+      const submitBtn = document.getElementById('submitBtn');
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<span>Processing Booking...</span>';
+      }
+
+      // Generate Reference Code (e.g. TDC-2026-8492)
+      const currentYear = new Date().getFullYear();
+      const randomCode = Math.floor(1000 + Math.random() * 9000);
+      const bookingId = `TDC-${currentYear}-${randomCode}`;
+
+      const payload = {
+        bookingId: bookingId,
+        name: name,
+        phone: phone,
+        email: email,
+        treatment: treatment,
+        date: date,
+        time: time,
+        location: location,
+        doctor: "Dr. Patricia Santos, DMD (Dentiva)",
+        notes: notes,
+        timestamp: new Date().toISOString()
+      };
+
+      // Check configured webhook
+      const webhookUrl = localStorage.getItem(WEBHOOK_STORAGE_KEY);
+      if (webhookUrl && webhookUrl.startsWith('http')) {
+        try {
+          await fetch(webhookUrl, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+          console.log('Dispatched to Google Sheet Webhook:', webhookUrl);
+        } catch (err) {
+          console.warn('Webhook transmission error (local fallback active):', err);
+        }
+      }
+
+      // Display Success State
+      document.getElementById('bookingForm').style.display = 'none';
+      document.getElementById('bookingSuccess').style.display = 'block';
+
+      document.getElementById('resRef').textContent = bookingId;
+      document.getElementById('resName').textContent = name;
+      document.getElementById('resService').textContent = treatment;
+      document.getElementById('resDateTime').textContent = `${date} at ${time}`;
+
+      // Save to local booking history
+      const localHistory = JSON.parse(localStorage.getItem('tooth_d_care_bookings') || '[]');
+      localHistory.unshift(payload);
+      localStorage.setItem('tooth_d_care_bookings', JSON.stringify(localHistory));
+    };
+
+    // Webhook Modal Controls
+    window.openWebhookConfigModal = function() {
+      const modal = document.getElementById('webhookModal');
+      const input = document.getElementById('webhookUrlInput');
+      const saved = localStorage.getItem(WEBHOOK_STORAGE_KEY) || '';
+      input.value = saved;
+      modal.style.display = 'flex';
+      document.getElementById('webhookStatusMsg').textContent = '';
+    };
+
+    window.closeWebhookModal = function() {
+      document.getElementById('webhookModal').style.display = 'none';
+    };
+
+    window.saveWebhookUrl = function() {
+      const input = document.getElementById('webhookUrlInput').value.trim();
+      localStorage.setItem(WEBHOOK_STORAGE_KEY, input);
+      const msg = document.getElementById('webhookStatusMsg');
+      msg.style.color = '#10B981';
+      msg.textContent = '✓ Webhook URL saved successfully!';
+      setTimeout(() => { window.closeWebhookModal(); }, 1200);
+    };
+
+    window.testWebhookPing = async function() {
+      const input = document.getElementById('webhookUrlInput').value.trim();
+      const msg = document.getElementById('webhookStatusMsg');
+      if (!input) {
+        msg.style.color = '#EF4444';
+        msg.textContent = 'Please enter a valid URL first.';
+        return;
+      }
+      msg.style.color = '#178782';
+      msg.textContent = 'Pinging Google Sheets Webhook...';
+      try {
+        await fetch(input, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ action: 'ping', ping: true })
+        });
+        msg.style.color = '#10B981';
+        msg.textContent = '✓ Connection signal dispatched to Google Sheets!';
+      } catch (err) {
+        msg.style.color = '#EF4444';
+        msg.textContent = 'Error contacting webhook: ' + err.toString();
+      }
+    };
+
+    // Initialize Lenis Smooth Scroll on Booking Page
+    if (typeof Lenis !== 'undefined' && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const lenis = new Lenis({
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        orientation: 'vertical',
+        smoothWheel: true,
+        wheelMultiplier: 1.0,
+        touchMultiplier: 1.5,
+      });
+
+      function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+      requestAnimationFrame(raf);
+      window.lenis = lenis;
+    }
+  </script>
+</body>
+</html>
