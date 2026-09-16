@@ -1204,28 +1204,92 @@ function initBeforeAfterSlider() {
    8. FAQ Accordion Logic
    -------------------------------------------------------------------------- */
 function initFAQAccordion() {
-  const triggers = document.querySelectorAll('.faq-question-trigger');
+  const triggers = document.querySelectorAll('.faq-question-trigger, .faq-toggle-btn');
+  if (!triggers.length) return;
 
   triggers.forEach((trigger) => {
-    trigger.addEventListener('click', () => {
+    trigger.addEventListener('click', (e) => {
+      e.preventDefault();
       const parentCard = trigger.closest('.faq-item-card');
-      const isOpen = parentCard.classList.contains('open');
+      if (!parentCard) return;
 
-      // Close other accordions in the same container
-      const siblingCards = parentCard.parentElement.querySelectorAll('.faq-item-card');
+      const panel = parentCard.querySelector('.faq-answer-drawer, .faq-answer-panel');
+      const icon = parentCard.querySelector('.faq-icon-rotator, .faq-icon');
+      const isAlreadyOpen = parentCard.classList.contains('open') || trigger.getAttribute('aria-expanded') === 'true';
+
+      // Find all sibling cards within the same container or category
+      const container = parentCard.closest('.faq-accordion-container') || parentCard.parentElement;
+      const siblingCards = container ? container.querySelectorAll('.faq-item-card') : document.querySelectorAll('.faq-item-card');
+
+      // Close all sibling accordions smoothly
       siblingCards.forEach((c) => {
-        c.classList.remove('open');
-        const trig = c.querySelector('.faq-question-trigger');
-        if (trig) trig.setAttribute('aria-expanded', 'false');
+        if (c !== parentCard) {
+          c.classList.remove('open');
+          c.style.borderColor = '#E5E7EB';
+          c.style.boxShadow = '0 1px 3px rgba(0, 0, 0, 0.03)';
+          const trig = c.querySelector('.faq-question-trigger, .faq-toggle-btn');
+          const p = c.querySelector('.faq-answer-drawer, .faq-answer-panel');
+          const ic = c.querySelector('.faq-icon-rotator, .faq-icon');
+          if (trig) trig.setAttribute('aria-expanded', 'false');
+          if (p) {
+            p.style.maxHeight = '0px';
+            p.style.opacity = '0';
+          }
+          if (ic) {
+            ic.textContent = '+';
+            ic.style.transform = 'rotate(0deg)';
+            ic.style.backgroundColor = '#F3F4F6';
+            ic.style.color = '#4B5563';
+          }
+        }
       });
 
-      // Toggle current
-      if (!isOpen) {
+      // Toggle current card
+      if (isAlreadyOpen) {
+        // Collapse
+        parentCard.classList.remove('open');
+        parentCard.style.borderColor = '#E5E7EB';
+        parentCard.style.boxShadow = '0 1px 3px rgba(0, 0, 0, 0.03)';
+        trigger.setAttribute('aria-expanded', 'false');
+        if (panel) {
+          panel.style.maxHeight = '0px';
+          panel.style.opacity = '0';
+        }
+        if (icon) {
+          icon.textContent = '+';
+          icon.style.transform = 'rotate(0deg)';
+          icon.style.backgroundColor = '#F3F4F6';
+          icon.style.color = '#4B5563';
+        }
+      } else {
+        // Expand
         parentCard.classList.add('open');
+        parentCard.style.borderColor = 'rgba(23, 135, 130, 0.4)';
+        parentCard.style.boxShadow = '0 6px 20px rgba(23, 135, 130, 0.08)';
         trigger.setAttribute('aria-expanded', 'true');
+        if (panel) {
+          panel.style.opacity = '1';
+          panel.style.maxHeight = (panel.scrollHeight + 32) + 'px';
+        }
+        if (icon) {
+          icon.textContent = '−';
+          icon.style.transform = 'rotate(180deg)';
+          icon.style.backgroundColor = '#111827';
+          icon.style.color = '#FFFFFF';
+        }
       }
     });
   });
+
+  // Responsive watchdog: keep open accordion panels fully fitted during viewport resize
+  window.addEventListener('resize', () => {
+    document.querySelectorAll('.faq-item-card.open').forEach((openCard) => {
+      const p = openCard.querySelector('.faq-answer-drawer, .faq-answer-panel');
+      if (p) {
+        p.style.maxHeight = (p.scrollHeight + 32) + 'px';
+      }
+    });
+  }, { passive: true });
 }
 
 /* --------------------------------------------------------------------------
