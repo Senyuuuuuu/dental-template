@@ -6,13 +6,14 @@
   <title>Our Dental Services &amp; Treatments — Dentiva Dental Clinic</title>
   <meta name="description" content="Explore Dentiva's full clinical spectrum: 3D guided dental implants, handcrafted porcelain veneers, cold-light laser whitening, and painless restorative care." />
   
-  <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+  <!-- Local & Google Fonts: Plus Jakarta Sans & Inter -->
+  <link rel="stylesheet" href="assets/fonts/local-fonts.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,300&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet" />
   
   <!-- Stylesheet -->
-    <link rel="icon" type="image/jpeg" href="assets/dentist_logo.jpg" />
+  <link rel="icon" type="image/jpeg" href="assets/dentist_logo.jpg" />
   <link rel="stylesheet" href="style.css" />
   
   <!-- GSAP -->
@@ -73,15 +74,40 @@
 
     <!-- SUBPAGE HERO BANNER -->
     <section class="subpage-hero">
-      <div class="subpage-breadcrumbs">
-        <a href="index.html">Home</a>
-        <span>/</span>
-        <span>Our Services</span>
+      <div class="subpage-hero-grid">
+        <div class="subpage-hero-text">
+          <div class="subpage-breadcrumbs">
+            <a href="index.html">Home</a>
+            <span>/</span>
+            <span>Our Services</span>
+          </div>
+          <h1 class="subpage-title">Advanced Dental Care,<br />Engineered for Natural Perfection.</h1>
+          <p class="subpage-desc">
+            From robotic 3D-guided titanium implants to micro-thin handcrafted porcelain veneers and zero-sensitivity laser whitening, explore our full spectrum of specialized dental treatments.
+          </p>
+          <div class="subpage-hero-badges">
+            <div class="hero-feature-badge">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+              <span>Swiss 3D-Guided Implants</span>
+            </div>
+            <div class="hero-feature-badge">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+              <span>Handcrafted Porcelain</span>
+            </div>
+            <div class="hero-feature-badge">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              <span>Lifetime Durability Guarantee</span>
+            </div>
+          </div>
+        </div>
+        <div class="subpage-hero-video-wrapper">
+          <video class="subpage-hero-video" autoplay loop muted playsinline preload="auto" poster="assets/services_hero_poster.jpg" aria-label="3D animated dental implant and precision porcelain crown restoration demonstration">
+            <source src="assets/services_hero_implant.webm" type="video/webm">
+            <source src="assets/services_hero_implant.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
       </div>
-      <h1 class="subpage-title">Advanced Dental Care,<br />Engineered for Natural Perfection.</h1>
-      <p class="subpage-desc">
-        From robotic 3D-guided titanium implants to micro-thin handcrafted porcelain veneers and zero-sensitivity laser whitening, explore our full spectrum of specialized dental treatments.
-      </p>
     </section>
 
     <!-- SERVICES COMPREHENSIVE CATALOG -->
@@ -115,7 +141,7 @@
             <div class="card-body">
               <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
                 <h3 class="card-title" style="margin-bottom: 0;">Titanium Dental Implants</h3>
-                <span style="color: #178782; font-weight: 700; font-size: 0.95rem;">From ₱65,000</span>
+                <span style="color: #178782; font-weight: 700; font-size: 0.95rem;">From $1,450</span>
               </div>
               <p class="card-text">
                 Permanent, biocompatible tooth replacement with 3D CBCT guided surgical accuracy and custom zirconia ceramic crown. Zero disruption to adjacent healthy teeth.
@@ -139,7 +165,7 @@
             <div class="card-body">
               <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
                 <h3 class="card-title" style="margin-bottom: 0;">Porcelain Ceramic Veneers</h3>
-                <span style="color: #178782; font-weight: 700; font-size: 0.95rem;">From ₱22,000 / tooth</span>
+                <span style="color: #178782; font-weight: 700; font-size: 0.95rem;">From $450 / tooth</span>
               </div>
               <p class="card-text">
                 Ultra-thin 0.3mm handcrafted porcelain veneers that close diastemas (gaps), fix micro-fractures, and create a seamless, luminous red-carpet smile with minimal enamel reduction.
@@ -163,7 +189,7 @@
             <div class="card-body">
               <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
                 <h3 class="card-title" style="margin-bottom: 0;">Laser Cold-Light Whitening</h3>
-                <span style="color: #178782; font-weight: 700; font-size: 0.95rem;">₱9,500 Complete</span>
+                <span style="color: #178782; font-weight: 700; font-size: 0.95rem;">$280 Complete</span>
               </div>
               <p class="card-text">
                 Safe, high-potency in-chair laser bleaching that lifts tea, coffee, wine, and age stains up to 8 shades in a single 45-minute appointment with desensitizing thermal barrier technology.
@@ -187,7 +213,7 @@
             <div class="card-body">
               <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
                 <h3 class="card-title" style="margin-bottom: 0;">Vibrant Comprehensive Exam</h3>
-                <span style="color: #178782; font-weight: 700; font-size: 0.95rem;">₱1,500</span>
+                <span style="color: #178782; font-weight: 700; font-size: 0.95rem;">$95</span>
               </div>
               <p class="card-text">
                 Full 360-degree digital oral health examination including intraoral photography, digital low-dose X-rays, oral cancer screening, and gum health pocket staging.
@@ -211,7 +237,7 @@
             <div class="card-body">
               <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
                 <h3 class="card-title" style="margin-bottom: 0;">Oral Prophylaxis / Cleaning</h3>
-                <span style="color: #178782; font-weight: 700; font-size: 0.95rem;">₱1,800</span>
+                <span style="color: #178782; font-weight: 700; font-size: 0.95rem;">$85</span>
               </div>
               <p class="card-text">
                 Gentle calculus scaling and air-flow polishing using ultrafine glycine powder. Eliminates deep bio-film, restores natural tooth smoothness, and leaves breath fresh.
@@ -235,7 +261,7 @@
             <div class="card-body">
               <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
                 <h3 class="card-title" style="margin-bottom: 0;">Composite Aesthetic Fillings</h3>
-                <span style="color: #178782; font-weight: 700; font-size: 0.95rem;">From ₱1,800</span>
+                <span style="color: #178782; font-weight: 700; font-size: 0.95rem;">From $120</span>
               </div>
               <p class="card-text">
                 Mercury-free, tooth-colored micro-hybrid composite fillings that mimic the natural compressive strength and enamel elasticity of organic dentition.
@@ -259,7 +285,7 @@
             <div class="card-body">
               <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
                 <h3 class="card-title" style="margin-bottom: 0;">Orthodontics & Braces</h3>
-                <span style="color: #178782; font-weight: 700; font-size: 0.95rem;">From ₱25,000</span>
+                <span style="color: #178782; font-weight: 700; font-size: 0.95rem;">From $1,800</span>
               </div>
               <p class="card-text">
                 Metal and ceramic dental braces, clear retainers, and bite correction using modern digital arch-wire planning. Personalized tooth alignment for teenagers and adults seeking a confident, straight smile.
@@ -283,7 +309,7 @@
             <div class="card-body">
               <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
                 <h3 class="card-title" style="margin-bottom: 0;">Oral Surgery & Extractions</h3>
-                <span style="color: #178782; font-weight: 700; font-size: 0.95rem;">From ₱3,500</span>
+                <span style="color: #178782; font-weight: 700; font-size: 0.95rem;">From $250</span>
               </div>
               <p class="card-text">
                 Surgical extraction of painful impacted wisdom teeth, complex multi-rooted extractions, bone preservation for future implants, and gentle minor oral surgical procedures under precision local anesthesia.
@@ -291,6 +317,30 @@
               <div style="margin-top: 18px; display: flex; justify-content: space-between; align-items: center;">
                 <span style="font-size: 0.78rem; color: #94A3B8;">Same-Day Surgery • Pain-Free</span>
                 <a href="booking.html?treatment=surgery" class="btn-black-pill" style="padding: 8px 16px; font-size: 0.8rem; text-decoration: none;">
+                  <span>Consult</span>
+                  <span class="btn-arrow">➔</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Treatment 9: Pedodontics (Pediatric Dentistry) -->
+          <article class="service-card" id="pedodontics">
+            <div class="card-media">
+              <img src="assets/service_cleaning.jpg" alt="Pedodontics Pediatric Dentistry for Children" class="card-img" />
+              <div class="card-tag">Pediatric Care</div>
+            </div>
+            <div class="card-body">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <h3 class="card-title" style="margin-bottom: 0;">Pedodontics & Kids Dentistry</h3>
+                <span style="color: #178782; font-weight: 700; font-size: 0.95rem;">From $95</span>
+              </div>
+              <p class="card-text">
+                Compassionate, anxiety-free dentistry for infants, children, and teens: preventive fluoride coatings, pit and fissure sealants, gentle cavity treatment, and foundational oral habit guidance.
+              </p>
+              <div style="margin-top: 18px; display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 0.78rem; color: #94A3B8;">Child-Friendly • Gentle Care</span>
+                <a href="booking.html?treatment=pedodontics" class="btn-black-pill" style="padding: 8px 16px; font-size: 0.8rem; text-decoration: none;">
                   <span>Consult</span>
                   <span class="btn-arrow">➔</span>
                 </a>

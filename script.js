@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initBeforeAfterSlider();
   initFAQAccordion();
   initMessengerConcierge();
+  initLanguageSelector();
 });
 
 /* --------------------------------------------------------------------------
@@ -376,6 +377,21 @@ function initGSAPScrollAnimations() {
       .from('.subpage-breadcrumbs', { opacity: 0, y: -12, duration: 0.5, delay: 0.1 })
       .from('.subpage-title', { opacity: 0, y: 28, duration: 0.75 }, '-=0.3')
       .from('.subpage-desc', { opacity: 0, y: 18, duration: 0.65 }, '-=0.4');
+
+    if (document.querySelector('.subpage-hero-badges')) {
+      subTL.from('.hero-feature-badge', { opacity: 0, y: 14, stagger: 0.1, duration: 0.5 }, '-=0.3');
+    }
+    if (document.querySelector('.subpage-hero-video-wrapper')) {
+      subTL.from('.subpage-hero-video-wrapper', { opacity: 0, scale: 0.95, y: 20, duration: 0.8 }, '-=0.6');
+    }
+
+    const heroVid = document.querySelector('.subpage-hero-video');
+    if (heroVid) {
+      const playPromise = heroVid.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {});
+      }
+    }
   }
 
   // D. Statistics Ribbon Scroll Animation
@@ -876,8 +892,83 @@ function initAppointmentModal() {
   window.closeAppointmentModal = closeModal;
   window.handleBookingSubmit = function () {
     if (bookingForm && successBox) {
+      try {
+        const name = document.getElementById('patientName') ? document.getElementById('patientName').value.trim() : '';
+        const phone = document.getElementById('patientPhone') ? document.getElementById('patientPhone').value.trim() : '';
+        const treatment = document.getElementById('treatmentSelect') ? document.getElementById('treatmentSelect').options[document.getElementById('treatmentSelect').selectedIndex].text : '';
+        const date = document.getElementById('prefDate') ? document.getElementById('prefDate').value : '';
+        const time = document.getElementById('prefTime') ? document.getElementById('prefTime').options[document.getElementById('prefTime').selectedIndex].text : '';
+
+        const existing = JSON.parse(localStorage.getItem('dentiva_bookings') || '[]');
+        existing.push({
+          id: 'DENT-' + Date.now().toString().slice(-6),
+          name, phone, treatment, date, time,
+          submittedAt: new Date().toISOString(),
+          source: 'modal_popup'
+        });
+        localStorage.setItem('dentiva_bookings', JSON.stringify(existing));
+      } catch (err) {
+        console.warn('LocalStorage save failed:', err);
+      }
+
       bookingForm.style.display = 'none';
       successBox.style.display = 'block';
+    }
+  };
+
+  // Dedicated handler for on-page contact form
+  window.handleContactSubmit = function (e) {
+    if (e && e.preventDefault) e.preventDefault();
+    const form = document.getElementById('contactPageForm');
+    const successBox = document.getElementById('contactPageSuccess');
+    const detailsBox = document.getElementById('contactPageSuccessDetails');
+
+    if (!form) return;
+
+    const name = document.getElementById('cName') ? document.getElementById('cName').value.trim() : '';
+    const phone = document.getElementById('cPhone') ? document.getElementById('cPhone').value.trim() : '';
+    const email = document.getElementById('cEmail') ? document.getElementById('cEmail').value.trim() : '';
+    const clinic = document.getElementById('cClinic') ? document.getElementById('cClinic').options[document.getElementById('cClinic').selectedIndex].text : '';
+    const treatment = document.getElementById('cTreatment') ? document.getElementById('cTreatment').options[document.getElementById('cTreatment').selectedIndex].text : '';
+    const date = document.getElementById('cDate') ? document.getElementById('cDate').value : '';
+    const time = document.getElementById('cTime') ? document.getElementById('cTime').options[document.getElementById('cTime').selectedIndex].text : '';
+
+    try {
+      const existing = JSON.parse(localStorage.getItem('dentiva_bookings') || '[]');
+      existing.push({
+        id: 'DENT-' + Date.now().toString().slice(-6),
+        name, phone, email, clinic, treatment, date, time,
+        submittedAt: new Date().toISOString(),
+        source: 'contact_page'
+      });
+      localStorage.setItem('dentiva_bookings', JSON.stringify(existing));
+    } catch (err) {
+      console.warn('LocalStorage save failed:', err);
+    }
+
+    if (detailsBox) {
+      detailsBox.innerHTML = `
+        <div style="margin-bottom: 6px;"><strong>Patient:</strong> ${name || 'Valued Patient'}</div>
+        <div style="margin-bottom: 6px;"><strong>Phone / Email:</strong> ${phone || '—'} / ${email || '—'}</div>
+        <div style="margin-bottom: 6px;"><strong>Treatment:</strong> ${treatment}</div>
+        <div style="margin-bottom: 6px;"><strong>Location:</strong> ${clinic}</div>
+        <div><strong>Requested Window:</strong> ${date || 'Earliest available'} (${time})</div>
+      `;
+    }
+
+    form.style.display = 'none';
+    if (successBox) successBox.style.display = 'block';
+  };
+
+  window.resetContactPageForm = function () {
+    const form = document.getElementById('contactPageForm');
+    const successBox = document.getElementById('contactPageSuccess');
+    if (form) {
+      form.reset();
+      form.style.display = 'block';
+    }
+    if (successBox) {
+      successBox.style.display = 'none';
     }
   };
 }
@@ -935,8 +1026,13 @@ function initSmoothScroll() {
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener('click', function (e) {
       const targetId = this.getAttribute('href');
-      if (!targetId || targetId === '#') return;
-      const targetEl = document.querySelector(targetId);
+      if (!targetId || targetId === '#' || targetId.length <= 1) return;
+      let targetEl = null;
+      try {
+        targetEl = document.querySelector(targetId);
+      } catch (err) {
+        targetEl = document.getElementById(targetId.substring(1));
+      }
       if (targetEl) {
         e.preventDefault();
         const headerOffset = 90;
@@ -971,8 +1067,13 @@ function initSmoothScroll() {
   });
 
   // Handle URL hash on page load (e.g. services.html#veneers or index.html#faq)
-  if (window.location.hash) {
-    const hashTarget = document.querySelector(window.location.hash);
+  if (window.location.hash && window.location.hash.length > 1) {
+    let hashTarget = null;
+    try {
+      hashTarget = document.querySelector(window.location.hash);
+    } catch (err) {
+      hashTarget = document.getElementById(window.location.hash.substring(1));
+    }
     if (hashTarget) {
       setTimeout(() => {
         if (lenisInstance) {
@@ -1440,3 +1541,59 @@ function initMessengerConcierge() {
     }, 550);
   };
 }
+
+/* --------------------------------------------------------------------------
+   10. Interactive Language Selector Feedback Toast
+   -------------------------------------------------------------------------- */
+function initLanguageSelector() {
+  const langBtns = document.querySelectorAll('.lang-selector, #langBtn');
+  if (!langBtns.length) return;
+
+  langBtns.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const span = btn.querySelector('span:last-child');
+      const current = span ? span.textContent.trim() : 'EN';
+      const next = current === 'EN' ? 'ES' : 'EN';
+      if (span) span.textContent = next;
+
+      // Toast feedback
+      let toast = document.getElementById('dentivaLangToast');
+      if (!toast) {
+        toast = document.createElement('div');
+        toast.id = 'dentivaLangToast';
+        toast.style.position = 'fixed';
+        toast.style.bottom = '28px';
+        toast.style.left = '50%';
+        toast.style.transform = 'translateX(-50%) translateY(80px)';
+        toast.style.background = '#141618';
+        toast.style.color = '#FFFFFF';
+        toast.style.padding = '12px 24px';
+        toast.style.borderRadius = '999px';
+        toast.style.fontFamily = 'var(--font-heading), sans-serif';
+        toast.style.fontSize = '0.88rem';
+        toast.style.fontWeight = '600';
+        toast.style.boxShadow = '0 12px 30px rgba(0, 0, 0, 0.25)';
+        toast.style.zIndex = '999999';
+        toast.style.transition = 'all 0.35s cubic-bezier(0.16, 1, 0.3, 1)';
+        toast.style.pointerEvents = 'none';
+        toast.style.opacity = '0';
+        document.body.appendChild(toast);
+      }
+
+      toast.textContent = next === 'ES'
+        ? '🌐 Idioma: Español (Demostración de interfaz activa)'
+        : '🌐 Language: English (Default active)';
+
+      toast.style.transform = 'translateX(-50%) translateY(0)';
+      toast.style.opacity = '1';
+
+      clearTimeout(btn._toastTimer);
+      btn._toastTimer = setTimeout(() => {
+        toast.style.transform = 'translateX(-50%) translateY(80px)';
+        toast.style.opacity = '0';
+      }, 2400);
+    });
+  });
+}
+

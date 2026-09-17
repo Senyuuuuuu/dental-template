@@ -9,10 +9,13 @@
   <!-- Google Fonts: Plus Jakarta Sans & Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,300&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet" />
+  
+  <!-- Offline & Local Fonts Fallback -->
+  <link rel="stylesheet" href="assets/fonts/local-fonts.css" />
   
   <!-- Stylesheet -->
-    <link rel="icon" type="image/jpeg" href="assets/dentist_logo.jpg" />
+  <link rel="icon" type="image/jpeg" href="assets/dentist_logo.jpg" />
   <link rel="stylesheet" href="style.css" />
   
   <!-- GSAP -->
@@ -64,9 +67,9 @@
         <a href="reviews.html" class="mobile-link">Patient Stories</a>
         <a href="faq.html" class="mobile-link active">FAQ</a>
         <a href="contact.html" class="mobile-link">Our Clinics</a>
-        <a href="booking.html" class="mobile-link" style="color: var(--accent-teal); font-weight: 700;">Book Online ➔</a>
+        <a href="booking.html" class="mobile-link mobile-book-highlight">Book Online ➔</a>
         <div class="mobile-menu-actions">
-          <a href="booking.html" class="btn-signin" style="width: 100%; text-align: center; display: block;">Book Consultation</a>
+          <a href="booking.html" class="btn-signin mobile-btn-signin">Book Consultation</a>
         </div>
       </div>
     </header>
@@ -102,7 +105,7 @@
       </div>
 
       <!-- Category 1: Dental Implants & Surgery -->
-      <div style="max-width: 820px; margin: 0 auto 48px;">
+      <div class="faq-category-block" style="max-width: 820px; margin: 0 auto 48px;">
         <h3 style="font-family: var(--font-heading); font-size: 1.3rem; font-weight: 700; color: var(--text-dark); margin-bottom: 20px; display: flex; align-items: center; gap: 8px;">
           <span style="color: var(--accent-blue);">🦷</span> Dental Implants &amp; Restorations
         </h3>
@@ -147,7 +150,7 @@
       </div>
 
       <!-- Category 2: Cosmetic Dentistry (Veneers & Whitening) -->
-      <div style="max-width: 820px; margin: 0 auto 48px;">
+      <div class="faq-category-block" style="max-width: 820px; margin: 0 auto 48px;">
         <h3 style="font-family: var(--font-heading); font-size: 1.3rem; font-weight: 700; color: var(--text-dark); margin-bottom: 20px; display: flex; align-items: center; gap: 8px;">
           <span style="color: var(--accent-blue);">✨</span> Cosmetic Veneers &amp; Laser Whitening
         </h3>
@@ -180,7 +183,7 @@
       </div>
 
       <!-- Category 3: Pain Management & Financing -->
-      <div style="max-width: 820px; margin: 0 auto 48px;">
+      <div class="faq-category-block" style="max-width: 820px; margin: 0 auto 48px;">
         <h3 style="font-family: var(--font-heading); font-size: 1.3rem; font-weight: 700; color: var(--text-dark); margin-bottom: 20px; display: flex; align-items: center; gap: 8px;">
           <span style="color: var(--accent-blue);">💳</span> Financing, Insurance &amp; Sedation
         </h3>
@@ -210,6 +213,15 @@
             </div>
           </div>
         </div>
+      </div>
+
+      <!-- No Results Container -->
+      <div id="faqNoResults" style="display: none; max-width: 680px; margin: 0 auto 48px; text-align: center; padding: 32px 20px; background: #F8FAFC; border: 1px dashed #CBD5E1; border-radius: var(--radius-card);">
+        <p style="font-size: 1.1rem; font-weight: 600; color: var(--text-dark); margin-bottom: 8px;">No matching clinical questions found</p>
+        <p style="font-size: 0.9rem; color: #64748B; margin-bottom: 16px;">Try adjusting your search terms or speak directly with our concierge team below.</p>
+        <button type="button" class="btn-black-pill" onclick="document.getElementById('faqSearchInput').value=''; window.filterFAQs(''); document.getElementById('faqSearchInput').focus();" style="font-size: 0.85rem; padding: 8px 18px;">
+          Clear Search
+        </button>
       </div>
 
       <!-- Still Have Questions Callout Box -->
@@ -313,7 +325,7 @@
           </div>
           <div class="form-group">
             <label for="patientPhone">Phone Number</label>
-            <input type="tel" id="patientPhone" placeholder="+44 20 7946 0912" required />
+            <input type="tel" id="patientPhone" placeholder="+1 (555) 234-8920" required />
           </div>
         </div>
 
@@ -462,18 +474,37 @@
   <!-- Script -->
   <script src="script.js"></script>
   <script>
-    // Live Search Filter for FAQ page
+    // Live Search Filter for FAQ page with category hiding & empty state
     window.filterFAQs = function(query) {
-      const q = query.toLowerCase().trim();
-      const items = document.querySelectorAll('.faq-item-card');
-      items.forEach(item => {
-        const text = item.textContent.toLowerCase();
-        if (!q || text.includes(q)) {
-          item.style.display = 'block';
+      const q = (query || '').toLowerCase().trim();
+      const categories = document.querySelectorAll('.faq-category-block');
+      let totalVisible = 0;
+
+      categories.forEach(function(cat) {
+        const items = cat.querySelectorAll('.faq-item-card');
+        let catVisible = 0;
+        items.forEach(function(item) {
+          const text = item.textContent.toLowerCase();
+          if (!q || text.includes(q)) {
+            item.style.display = 'block';
+            catVisible++;
+          } else {
+            item.style.display = 'none';
+          }
+        });
+
+        if (catVisible > 0) {
+          cat.style.display = 'block';
+          totalVisible += catVisible;
         } else {
-          item.style.display = 'none';
+          cat.style.display = 'none';
         }
       });
+
+      const noResults = document.getElementById('faqNoResults');
+      if (noResults) {
+        noResults.style.display = (totalVisible === 0 && q.length > 0) ? 'block' : 'none';
+      }
     };
   </script>
 </body>

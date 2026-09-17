@@ -9,10 +9,13 @@
   <!-- Google Fonts: Plus Jakarta Sans & Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,300&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet" />
+  
+  <!-- Offline & Local Fonts Fallback -->
+  <link rel="stylesheet" href="assets/fonts/local-fonts.css" />
   
   <!-- Stylesheet -->
-    <link rel="icon" type="image/jpeg" href="assets/dentist_logo.jpg" />
+  <link rel="icon" type="image/jpeg" href="assets/dentist_logo.jpg" />
   <link rel="stylesheet" href="style.css" />
   
   <!-- GSAP -->
@@ -64,9 +67,9 @@
         <a href="reviews.html" class="mobile-link">Patient Stories</a>
         <a href="faq.html" class="mobile-link">FAQ</a>
         <a href="contact.html" class="mobile-link active">Our Clinics</a>
-        <a href="booking.html" class="mobile-link" style="color: var(--accent-teal); font-weight: 700;">Book Online ➔</a>
+        <a href="booking.html" class="mobile-link mobile-book-highlight">Book Online ➔</a>
         <div class="mobile-menu-actions">
-          <a href="booking.html" class="btn-signin" style="width: 100%; text-align: center; display: block;">Book Consultation</a>
+          <a href="booking.html" class="btn-signin mobile-btn-signin">Book Consultation</a>
         </div>
       </div>
     </header>
@@ -198,7 +201,7 @@
           </p>
         </div>
 
-        <form class="appointment-form" onsubmit="event.preventDefault(); window.handleBookingSubmit();">
+        <form class="appointment-form" id="contactPageForm" onsubmit="event.preventDefault(); window.handleContactSubmit(event);">
           <div class="form-row">
             <div class="form-group">
               <label for="cName">Full Name</label>
@@ -258,6 +261,22 @@
             No deposit required. 100% confidential under modern healthcare privacy standards.
           </p>
         </form>
+
+        <!-- On-Page Success Container -->
+        <div id="contactPageSuccess" style="display: none; text-align: center; padding: 36px 24px; background: #ECFDF5; border: 1px solid #A7F3D0; border-radius: var(--radius-card); margin-top: 16px;">
+          <div style="font-size: 2.8rem; margin-bottom: 12px;">🎉</div>
+          <h3 style="font-family: var(--font-heading); font-size: 1.45rem; font-weight: 700; color: #065F46; margin-bottom: 8px;">Consultation Request Received!</h3>
+          <p style="color: #047857; font-size: 0.95rem; line-height: 1.6; margin-bottom: 18px;">
+            Thank you! Our clinical concierge coordinator has registered your request and will contact you directly within 2 hours to confirm your scheduled appointment.
+          </p>
+          <div id="contactPageSuccessDetails" style="font-size: 0.88rem; color: #065F46; background: #FFFFFF; padding: 16px 20px; border-radius: 10px; display: inline-block; text-align: left; box-shadow: var(--shadow-sm); margin-bottom: 22px; width: 100%; max-width: 440px;">
+          </div>
+          <div>
+            <button type="button" class="btn-black-pill" onclick="window.resetContactPageForm()" style="font-size: 0.88rem; padding: 10px 22px;">
+              Request Another Slot
+            </button>
+          </div>
+        </div>
 
       </div>
     </section>
@@ -345,7 +364,7 @@
           </div>
           <div class="form-group">
             <label for="patientPhone">Phone Number</label>
-            <input type="tel" id="patientPhone" placeholder="+44 20 7946 0912" required />
+            <input type="tel" id="patientPhone" placeholder="+1 (555) 234-8920" required />
           </div>
         </div>
 
