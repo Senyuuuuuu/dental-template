@@ -35,14 +35,14 @@
 // ============================================================================
 const CONFIG = {
   SHEET_NAME: "Dentiva_Bookings",
-  CLINIC_NAME: "Dentiva Dental Clinic Philippines",
-  CLINIC_PHONE: "+63 917 888 3368",
-  CLINIC_WHATSAPP: "+63 917 888 3368",
-  CLINIC_RECEPTION_EMAIL: "reception@dentiva.ph", // Receptionist/owner email for instant alerts
+  CLINIC_NAME: "Dentiva Dental Clinic",
+  CLINIC_PHONE: "+1 (555) 234-8920",
+  CLINIC_WHATSAPP: "+1 (555) 234-8920",
+  CLINIC_RECEPTION_EMAIL: "contact@dentivaclinic.example", // Receptionist email for alerts
   ENABLE_PATIENT_CONFIRMATION_EMAIL: true,
   ENABLE_STAFF_ALERT_EMAIL: true,
-  TIMEZONE: "Asia/Manila",
-  CURRENCY_SYMBOL: "₱"
+  TIMEZONE: "UTC",
+  CURRENCY_SYMBOL: "$"
 };
 
 // ============================================================================
@@ -138,7 +138,7 @@ function doPost(e) {
       data.email || "",                        // Col D: Email Address
       data.phone || "",                        // Col E: Phone / WhatsApp
       data.treatment || "",                    // Col F: Treatment / Procedure
-      data.location || "BGC Surgical Flagship", // Col G: Clinic Location
+      data.location || "Central Flagship Center", // Col G: Clinic Location
       data.doctor || "Dr. Patricia Santos, DMD", // Col H: Specialist Clinician
       data.date || "",                         // Col I: Requested Date
       data.time || "",                         // Col J: Preferred Time Slot
@@ -183,7 +183,7 @@ function doPost(e) {
       bookingId: bookingId,
       patientName: data.name,
       treatment: data.treatment,
-      location: data.location || "BGC Surgical Flagship",
+      location: data.location || "Central Flagship Center",
       doctor: data.doctor || "Dr. Patricia Santos, DMD",
       date: data.date,
       time: data.time,
@@ -295,13 +295,11 @@ function lookupBooking(bookingId, corsHeaders) {
 // 7. BRANDED HTML PATIENT CONFIRMATION EMAIL
 // ============================================================================
 function sendPatientConfirmationEmail(data, bookingId) {
-  const clinicAddress = data.location && data.location.toLowerCase().includes("makati")
-    ? "14th Floor, Ayala Tower One & Exchange Plaza, Ayala Ave, Makati City, 1226 Metro Manila"
-    : "Level 8, High Street South Corporate Plaza, 26th St., Bonifacio Global City, Taguig, 1634 Metro Manila";
+  const clinicAddress = data.location && data.location.toLowerCase().includes("north")
+    ? "Unit 210, Skyline Health Pavilion, 168 Crescent Avenue, North District"
+    : "Suite 402, Grandview Medical Arts Tower, 842 Horizon Boulevard, Metro Central";
 
-  const mapLink = data.location && data.location.toLowerCase().includes("makati")
-    ? "https://maps.google.com/?q=Ayala+Tower+One+Makati+City"
-    : "https://maps.google.com/?q=High+Street+South+Corporate+Plaza+BGC+Taguig";
+  const mapLink = "https://maps.google.com/?q=Medical+Arts+Tower";
 
   const subject = `Dentiva Consultation Confirmed [Ref: ${bookingId}]`;
 
@@ -329,12 +327,12 @@ function sendPatientConfirmationEmail(data, bookingId) {
     <body>
       <div class="email-container">
         <div class="email-header">
-          <div class="brand-pill">Dentiva Dental Clinic Philippines</div>
+          <div class="brand-pill">Dentiva Dental Clinic</div>
           <h1 class="email-title">Consultation Confirmed</h1>
         </div>
         <div class="email-body">
           <p>Dear <strong>${escapeHtml(data.name)}</strong>,</p>
-          <p>Mabuhay! Thank you for scheduling your dental appointment with Dentiva. Your clinical reservation has been secured in our system.</p>
+          <p>Thank you for scheduling your dental appointment with Dentiva. Your clinical reservation has been secured in our system.</p>
 
           <div class="booking-card">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
@@ -347,7 +345,7 @@ function sendPatientConfirmationEmail(data, bookingId) {
             </div>
             <div class="detail-row">
               <span class="detail-label">Clinic Location:</span>
-              <span class="detail-val">${escapeHtml(data.location || "BGC Surgical Flagship")}</span>
+              <span class="detail-val">${escapeHtml(data.location || "Central Flagship Center")}</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Specialist Clinician:</span>
@@ -370,12 +368,12 @@ function sendPatientConfirmationEmail(data, bookingId) {
           </div>
 
           <p style="font-size: 13px; color: #64748B; margin-top: 24px;">
-            Need to adjust your time slot? Call our concierge team on <strong>${CONFIG.CLINIC_PHONE}</strong> or message us directly on Viber / WhatsApp.
+            Need to adjust your time slot? Call our concierge team on <strong>${CONFIG.CLINIC_PHONE}</strong> or message us directly on live chat.
           </p>
         </div>
         <div class="email-footer">
-          © 2026 Dentiva Dental Clinic Philippines • BGC Taguig &amp; Makati City, Metro Manila<br>
-          Licensed under the Philippine Professional Regulation Commission (PRC) &amp; Philippine Dental Association (PDA).
+          © 2026 Dentiva Dental Clinic • All Rights Reserved.<br>
+          Accredited Dental Healthcare Provider &amp; Clinical Excellence Network.
         </div>
       </div>
     </body>

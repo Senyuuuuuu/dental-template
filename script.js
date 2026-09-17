@@ -1326,7 +1326,25 @@ function initMessengerConcierge() {
   launcherBtn.addEventListener('click', toggleChat);
   if (closeBtn) closeBtn.addEventListener('click', closeChat);
 
-  // Tab switching between In-Bubble Chat and Direct Meta Messenger
+  // Global helper to open messenger concierge without page navigation
+  window.openMessengerConcierge = function(e) {
+    if (e && e.preventDefault) e.preventDefault();
+    chatModal.classList.add('active');
+    if (tabBubbleChat) tabBubbleChat.click();
+    setTimeout(() => { inputField?.focus(); }, 100);
+    return false;
+  };
+
+  // Helper to switch directly into active chat tab
+  window.switchToBubbleChat = function(e) {
+    if (e && e.preventDefault) e.preventDefault();
+    if (tabBubbleChat) tabBubbleChat.click();
+    appendBotBubble("⚡ Front Desk Concierge is active right here on this page! How can we assist with your visit or inquiry today?");
+    setTimeout(() => { inputField?.focus(); }, 100);
+    return false;
+  };
+
+  // Tab switching between In-Bubble Chat and Direct Concierge Info
   if (tabBubbleChat && tabDirectMessenger) {
     tabBubbleChat.addEventListener('click', () => {
       tabBubbleChat.classList.add('active');
@@ -1382,20 +1400,19 @@ function initMessengerConcierge() {
 
     setTimeout(() => {
       if (action === 'book') {
-        appendBotBubble("I'm opening our instant booking concierge for you now! Please pick your preferred date and clinic location.");
+        appendBotBubble("I'm opening our instant booking concierge for you now! Please select your desired service and preferred date.");
         setTimeout(() => {
           if (window.openAppointmentModal) window.openAppointmentModal();
           closeChat();
         }, 600);
       } else if (action === 'whitening') {
-        appendBotBubble("Our in-clinic cold-light laser whitening is currently <strong>£385</strong> (inclusive of 8-shade lift guarantee, pre-treatment polish, and custom take-home trays). Would you like to reserve a time?");
+        appendBotBubble("Our in-clinic cold-light laser whitening includes pre-treatment polish, shade-lift guarantee, and custom take-home trays. Would you like to reserve a time?");
       } else if (action === 'implant') {
-        appendBotBubble("Dentiva specializes in 3D CBCT guided titanium implants with custom zirconia crowns from <strong>£1,450</strong> with 0% APR monthly financing. 99.4% clinical integration rate.");
+        appendBotBubble("Dentiva specializes in 3D CBCT guided titanium implants with custom monolithic zirconia crowns and flexible monthly financing. 99.4% clinical integration rate.");
       } else if (action === 'messenger-direct') {
-        appendBotBubble("Switching you to direct Meta Messenger mode! You can chat directly with our front desk on Messenger.");
-        setTimeout(() => {
-          if (tabDirectMessenger) tabDirectMessenger.click();
-        }, 500);
+        appendBotBubble("⚡ You are now chatting directly with our on-duty clinic concierge right here! What questions can we answer for you?");
+        if (tabBubbleChat) tabBubbleChat.click();
+        inputField?.focus();
       }
     }, 450);
   }
@@ -1410,14 +1427,14 @@ function initMessengerConcierge() {
     // Concierge AI response simulation
     setTimeout(() => {
       const lower = userText.toLowerCase();
-      let reply = "Mabuhay! Thank you for reaching out. A patient coordinator at our BGC Flagship or Makati Suite is ready to assist. Would you like to <a href='booking.html' style='color: var(--accent-blue); text-decoration: underline; font-weight: 600;'>book an appointment online</a>, chat on <a href='https://m.me/dentivaphilippines' target='_blank' style='color: var(--messenger-blue); font-weight: 600;'>Facebook Messenger (@dentivaphilippines)</a>, or message our Viber/WhatsApp concierge at <strong>0917 888 3368</strong>?";
+      let reply = "Hello! Thank you for reaching out to Dentiva. A patient coordinator at our clinic is ready to assist. Would you like to <a href='booking.html' style='color: var(--accent-blue); text-decoration: underline; font-weight: 600;'>book an appointment online</a>, message us right here, or call our clinic front desk directly at <strong>+1 (555) 234-8920</strong>?";
       
       if (lower.includes('price') || lower.includes('cost') || lower.includes('fee')) {
-        reply = "Our comprehensive 3D digital checkup & panoramic X-ray is ₱1,500. Single titanium implants start at ₱65,000, Laser Whitening is ₱9,500, and Ultrasonic Cleanings are ₱1,800. We accept 0% installment plans via BDO, BPI, GCash, Maya, and major Philippine dental HMOs!";
+        reply = "Our comprehensive 3D digital checkup & imaging consultation starts at $95. Single titanium implants start from $1,450, Laser Whitening is $280, and Prophylaxis Cleanings are $85. We offer 0% APR installment financing and accept leading dental insurance plans!";
       } else if (lower.includes('implant') || lower.includes('tooth') || lower.includes('teeth')) {
-        reply = "Our BGC surgical suite specializes in 3D CBCT guided titanium implants with custom monolithic zirconia crowns. Would you like to reserve a 3D assessment?";
+        reply = "Our clinic specializes in 3D CBCT guided titanium implants with custom monolithic zirconia crowns. Would you like to reserve a 3D assessment?";
       } else if (lower.includes('emergency') || lower.includes('pain') || lower.includes('hurt')) {
-        reply = "🚨 <strong>Same-Day Dental Emergency:</strong> We prioritize severe toothache, broken teeth, and dental trauma at our BGC and Makati clinics. Please call our hotline directly at <strong>(02) 8888 3368</strong> or <strong>0917 888 3368</strong>.";
+        reply = "🚨 <strong>Same-Day Dental Emergency:</strong> We prioritize severe toothache, broken teeth, and dental trauma. Please call our emergency front desk hotline immediately at <strong>+1 (555) 234-8920</strong> or <strong>+1 (555) 234-8921</strong>.";
       }
       appendBotBubble(reply);
     }, 550);
